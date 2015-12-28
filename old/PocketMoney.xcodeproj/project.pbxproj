@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */; };
+		1D2B8B271C302BA10043DBD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2B8B251C302BA10043DBD1 /* Main.storyboard */; };
+		1D2B8B2A1C302BA10043DBD1 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B281C302BA10043DBD1 /* Test.xcdatamodeld */; };
+		1D2B8B2C1C302BA10043DBD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */; };
+		1D2B8B2F1C302BA10043DBD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2B8B2D1C302BA10043DBD1 /* LaunchScreen.storyboard */; };
+		1D2B8B3A1C302BA10043DBD1 /* PocketMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B391C302BA10043DBD1 /* PocketMoneyTests.swift */; };
+		1D2B8B451C302BA10043DBD1 /* PocketMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B441C302BA10043DBD1 /* PocketMoneyUITests.swift */; };
+		1D2B8B921C3041EF0043DBD1 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B911C3041EF0043DBD1 /* StoriesTableViewController.swift */; };
+		1D2B8B961C3056E30043DBD1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */; };
+		1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D2B8B361C302BA10043DBD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D2B8B161C302BA10043DBD1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D2B8B1D1C302BA10043DBD1;
+			remoteInfo = Test;
+		};
+		1D2B8B411C302BA10043DBD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D2B8B161C302BA10043DBD1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D2B8B1D1C302BA10043DBD1;
+			remoteInfo = Test;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D2B8B1E1C302BA10043DBD1 /* PocketMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D2B8B261C302BA10043DBD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D2B8B291C302BA10043DBD1 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
+		1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D2B8B2E1C302BA10043DBD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1D2B8B301C302BA10043DBD1 /* Test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Test; sourceTree = SOURCE_ROOT; };
+		1D2B8B351C302BA10043DBD1 /* PocketMoney.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketMoney.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2B8B391C302BA10043DBD1 /* PocketMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMoneyTests.swift; sourceTree = "<group>"; };
+		1D2B8B3B1C302BA10043DBD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D2B8B401C302BA10043DBD1 /* PocketMoney.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketMoney.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2B8B441C302BA10043DBD1 /* PocketMoneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMoneyUITests.swift; sourceTree = "<group>"; };
+		1D2B8B461C302BA10043DBD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D2B8B911C3041EF0043DBD1 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
+		1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D2B8B1B1C302BA10043DBD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B321C302BA10043DBD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B3D1C302BA10043DBD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D2B8B151C302BA10043DBD1 = {
+			isa = PBXGroup;
+			children = (
+				1D2B8B201C302BA10043DBD1 /* PocketMoney */,
+				1D2B8B381C302BA10043DBD1 /* PocketMoneyTests */,
+				1D2B8B431C302BA10043DBD1 /* PocketMoneyUITests */,
+				1D2B8B1F1C302BA10043DBD1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D2B8B1F1C302BA10043DBD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D2B8B1E1C302BA10043DBD1 /* PocketMoney.app */,
+				1D2B8B351C302BA10043DBD1 /* PocketMoney.xctest */,
+				1D2B8B401C302BA10043DBD1 /* PocketMoney.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D2B8B201C302BA10043DBD1 /* PocketMoney */ = {
+			isa = PBXGroup;
+			children = (
+				1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */,
+				1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */,
+				1D2B8B911C3041EF0043DBD1 /* StoriesTableViewController.swift */,
+				1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */,
+				1D2B8B251C302BA10043DBD1 /* Main.storyboard */,
+				1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */,
+				1D2B8B2D1C302BA10043DBD1 /* LaunchScreen.storyboard */,
+				1D2B8B301C302BA10043DBD1 /* Test */,
+				1D2B8B281C302BA10043DBD1 /* Test.xcdatamodeld */,
+			);
+			name = PocketMoney;
+			path = Test;
+			sourceTree = "<group>";
+		};
+		1D2B8B381C302BA10043DBD1 /* PocketMoneyTests */ = {
+			isa = PBXGroup;
+			children = (
+				1D2B8B391C302BA10043DBD1 /* PocketMoneyTests.swift */,
+				1D2B8B3B1C302BA10043DBD1 /* Info.plist */,
+			);
+			name = PocketMoneyTests;
+			path = TestTests;
+			sourceTree = "<group>";
+		};
+		1D2B8B431C302BA10043DBD1 /* PocketMoneyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1D2B8B441C302BA10043DBD1 /* PocketMoneyUITests.swift */,
+				1D2B8B461C302BA10043DBD1 /* Info.plist */,
+			);
+			name = PocketMoneyUITests;
+			path = TestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D2B8B1D1C302BA10043DBD1 /* PocketMoney */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D2B8B491C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoney" */;
+			buildPhases = (
+				1D2B8B1A1C302BA10043DBD1 /* Sources */,
+				1D2B8B1B1C302BA10043DBD1 /* Frameworks */,
+				1D2B8B1C1C302BA10043DBD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketMoney;
+			productName = Test;
+			productReference = 1D2B8B1E1C302BA10043DBD1 /* PocketMoney.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D2B8B341C302BA10043DBD1 /* PocketMoneyPocketMoneys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D2B8B4C1C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoneyPocketMoneys" */;
+			buildPhases = (
+				1D2B8B311C302BA10043DBD1 /* Sources */,
+				1D2B8B321C302BA10043DBD1 /* Frameworks */,
+				1D2B8B331C302BA10043DBD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D2B8B371C302BA10043DBD1 /* PBXTargetDependency */,
+			);
+			name = PocketMoneyPocketMoneys;
+			productName = TestTests;
+			productReference = 1D2B8B351C302BA10043DBD1 /* PocketMoney.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1D2B8B3F1C302BA10043DBD1 /* PocketMoneyUIPocketMoneys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D2B8B4F1C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoneyUIPocketMoneys" */;
+			buildPhases = (
+				1D2B8B3C1C302BA10043DBD1 /* Sources */,
+				1D2B8B3D1C302BA10043DBD1 /* Frameworks */,
+				1D2B8B3E1C302BA10043DBD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D2B8B421C302BA10043DBD1 /* PBXTargetDependency */,
+			);
+			name = PocketMoneyUIPocketMoneys;
+			productName = TestUITests;
+			productReference = 1D2B8B401C302BA10043DBD1 /* PocketMoney.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D2B8B161C302BA10043DBD1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Ben Emdon";
+				TargetAttributes = {
+					1D2B8B1D1C302BA10043DBD1 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = E299TDEV8Z;
+					};
+					1D2B8B341C302BA10043DBD1 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = E299TDEV8Z;
+						TestTargetID = 1D2B8B1D1C302BA10043DBD1;
+					};
+					1D2B8B3F1C302BA10043DBD1 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = E299TDEV8Z;
+						TestTargetID = 1D2B8B1D1C302BA10043DBD1;
+					};
+				};
+			};
+			buildConfigurationList = 1D2B8B191C302BA10043DBD1 /* Build configuration list for PBXProject "PocketMoney" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D2B8B151C302BA10043DBD1;
+			productRefGroup = 1D2B8B1F1C302BA10043DBD1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D2B8B1D1C302BA10043DBD1 /* PocketMoney */,
+				1D2B8B341C302BA10043DBD1 /* PocketMoneyPocketMoneys */,
+				1D2B8B3F1C302BA10043DBD1 /* PocketMoneyUIPocketMoneys */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D2B8B1C1C302BA10043DBD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2B8B2F1C302BA10043DBD1 /* LaunchScreen.storyboard in Resources */,
+				1D2B8B2C1C302BA10043DBD1 /* Assets.xcassets in Resources */,
+				1D2B8B271C302BA10043DBD1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B331C302BA10043DBD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B3E1C302BA10043DBD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D2B8B1A1C302BA10043DBD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2B8B921C3041EF0043DBD1 /* StoriesTableViewController.swift in Sources */,
+				1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */,
+				1D2B8B2A1C302BA10043DBD1 /* Test.xcdatamodeld in Sources */,
+				1D2B8B961C3056E30043DBD1 /* MenuViewController.swift in Sources */,
+				1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B311C302BA10043DBD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2B8B3A1C302BA10043DBD1 /* PocketMoneyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2B8B3C1C302BA10043DBD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2B8B451C302BA10043DBD1 /* PocketMoneyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D2B8B371C302BA10043DBD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D2B8B1D1C302BA10043DBD1 /* PocketMoney */;
+			targetProxy = 1D2B8B361C302BA10043DBD1 /* PBXContainerItemProxy */;
+		};
+		1D2B8B421C302BA10043DBD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D2B8B1D1C302BA10043DBD1 /* PocketMoney */;
+			targetProxy = 1D2B8B411C302BA10043DBD1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1D2B8B251C302BA10043DBD1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D2B8B261C302BA10043DBD1 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ../PocketMoney;
+			sourceTree = "<group>";
+		};
+		1D2B8B2D1C302BA10043DBD1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D2B8B2E1C302BA10043DBD1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D2B8B471C302BA10043DBD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D2B8B481C302BA10043DBD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D2B8B4A1C302BA10043DBD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;
+				PRODUCT_NAME = PocketMoney;
+			};
+			name = Debug;
+		};
+		1D2B8B4B1C302BA10043DBD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;
+				PRODUCT_NAME = PocketMoney;
+			};
+			name = Release;
+		};
+		1D2B8B4D1C302BA10043DBD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.TestTests;
+				PRODUCT_NAME = PocketMoney;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketMoney.app/PocketMoney";
+			};
+			name = Debug;
+		};
+		1D2B8B4E1C302BA10043DBD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.TestTests;
+				PRODUCT_NAME = PocketMoney;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketMoney.app/PocketMoney";
+			};
+			name = Release;
+		};
+		1D2B8B501C302BA10043DBD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.TestUITests;
+				PRODUCT_NAME = PocketMoney;
+				TEST_TARGET_NAME = Test;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1D2B8B511C302BA10043DBD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.TestUITests;
+				PRODUCT_NAME = PocketMoney;
+				TEST_TARGET_NAME = Test;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D2B8B191C302BA10043DBD1 /* Build configuration list for PBXProject "PocketMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D2B8B471C302BA10043DBD1 /* Debug */,
+				1D2B8B481C302BA10043DBD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D2B8B491C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D2B8B4A1C302BA10043DBD1 /* Debug */,
+				1D2B8B4B1C302BA10043DBD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D2B8B4C1C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoneyPocketMoneys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D2B8B4D1C302BA10043DBD1 /* Debug */,
+				1D2B8B4E1C302BA10043DBD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D2B8B4F1C302BA10043DBD1 /* Build configuration list for PBXNativeTarget "PocketMoneyUIPocketMoneys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D2B8B501C302BA10043DBD1 /* Debug */,
+				1D2B8B511C302BA10043DBD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D2B8B281C302BA10043DBD1 /* Test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D2B8B291C302BA10043DBD1 /* Test.xcdatamodel */,
+			);
+			currentVersion = 1D2B8B291C302BA10043DBD1 /* Test.xcdatamodel */;
+			path = Test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1D2B8B161C302BA10043DBD1 /* Project object */;
+}
