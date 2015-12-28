@@ -8,10 +8,12 @@
 
 import UIKit
 
+protocol StoryTableViewCellDelegate: class {
+}
+
 class StoryTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var badgeImage: UIImageView!
-    @IBOutlet var amountTitle: UILabel!
-
-
+    @IBOutlet var amountLabel: UILabel!
+    
 }

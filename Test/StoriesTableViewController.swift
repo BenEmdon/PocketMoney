@@ -14,6 +14,16 @@ class StoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         /*UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent ,animated: true)    //Depreciated  */
+        
+        tableView.estimatedRowHeight = 46
+        
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("InfoSegue", sender: self)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     @IBAction func menuButtonDidPress(sender: AnyObject) {
@@ -25,12 +35,12 @@ class StoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell")! as! StoryTableViewCell
         
-        cell.amountTitle.text = "$42.0"
+        cell.amountLabel.text = "$42.0"
         cell.badgeImage.image = UIImage(named: "Minus")
-
+        
         
         return cell
     }
