@@ -13,7 +13,8 @@ protocol StoryTableViewCellDelegate: class {
 
 class StoryTableViewCell: UITableViewCell {
     
-    @IBOutlet var badgeImage: UIImageView!
-    @IBOutlet var amountLabel: UILabel!
+    @IBOutlet weak var badgeImage: UIImageView!
+    @IBOutlet weak var amountLabel: UILabel!
+    weak var delegate: StoryTableViewCellDelegate?
     
 }

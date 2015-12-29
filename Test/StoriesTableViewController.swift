@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoriesTableViewController: UITableViewController {
+class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,7 @@ class StoriesTableViewController: UITableViewController {
         cell.amountLabel.text = "$42.0"
         cell.badgeImage.image = UIImage(named: "Minus")
         
+        cell.delegate = self
         
         return cell
     }
