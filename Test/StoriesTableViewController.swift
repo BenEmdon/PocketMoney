@@ -10,6 +10,8 @@ import UIKit
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
+    var dataList:[Values] = testData
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,16 +33,23 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell")! as! StoryTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell", forIndexPath: indexPath) as! StoryTableViewCell
         
-        cell.amountLabel.text = "$42.0"
-        cell.badgeImage.image = UIImage(named: "Minus")
-        cell.timeLabel.text = "8h"
+        let CellData = dataList[indexPath.row] as Values
+        
+        cell.amountLabel.text = CellData.amountString
+        if CellData.positive {
+            cell.badgeImage.image = UIImage(named: "Plus")
+        }
+        else {
+            cell.badgeImage.image = UIImage(named: "Minus")
+        }
+        cell.timeLabel.text = timeAgoSinceDate(CellData.timeCreated, numericDates: true)
         
         cell.delegate = self
         
@@ -63,57 +72,57 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
         
         if (components.year >= 2) {
-            return "\(components.year) years ago"
+            return "\(components.year)y"
         } else if (components.year >= 1){
             if (numericDates){
-                return "1 year ago"
+                return "1y"
             } else {
-                return "Last year"
+                return ""
             }
         } else if (components.month >= 2) {
-            return "\(components.month) months ago"
+            return "\(components.month)m"
         } else if (components.month >= 1){
             if (numericDates){
-                return "1 month ago"
+                return "1m"
             } else {
-                return "Last month"
+                return ""
             }
         } else if (components.weekOfYear >= 2) {
-            return "\(components.weekOfYear) weeks ago"
+            return "\(components.weekOfYear)w"
         } else if (components.weekOfYear >= 1){
             if (numericDates){
-                return "1 week ago"
+                return "1w"
             } else {
-                return "Last week"
+                return ""
             }
         } else if (components.day >= 2) {
-            return "\(components.day) days ago"
+            return "\(components.day)d"
         } else if (components.day >= 1){
             if (numericDates){
-                return "1 day ago"
+                return "1d"
             } else {
-                return "Yesterday"
+                return ""
             }
         } else if (components.hour >= 2) {
-            return "\(components.hour) hours ago"
+            return "\(components.hour)h"
         } else if (components.hour >= 1){
             if (numericDates){
-                return "1 hour ago"
+                return "1h"
             } else {
-                return "An hour ago"
+                return ""
             }
         } else if (components.minute >= 2) {
-            return "\(components.minute) minutes ago"
+            return "\(components.minute)m"
         } else if (components.minute >= 1){
             if (numericDates){
-                return "1 minute ago"
+                return "1m"
             } else {
-                return "A minute ago"
+                return ""
             }
         } else if (components.second >= 3) {
-            return "\(components.second) seconds ago"
+            return "\(components.second)s"
         } else {
-            return "Just now"
+            return "now"
         }
         
     }
