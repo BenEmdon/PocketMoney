@@ -8,9 +8,9 @@
 
 import UIKit
 
-/*
+
 var testData = [
-    Values(value: 14.30),
-    Values(value: 34.30),
-    Values(value: 9.30),
-]*/
+    Values(value: 14.30, positive: true),
+    Values(value: 34.30, positive: false),
+    Values(value: 9.30, positive: false),
+]
