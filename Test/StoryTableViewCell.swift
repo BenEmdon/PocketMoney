@@ -15,6 +15,8 @@ class StoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     weak var delegate: StoryTableViewCellDelegate?
     
 }
