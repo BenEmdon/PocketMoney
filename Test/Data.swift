@@ -27,3 +27,7 @@ struct Values {
     
 }
 
+struct AllData {
+    static var dataList:[Values] = testData
+}
+

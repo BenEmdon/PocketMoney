@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Create Data Table View Controller-->
+        <!--In or Out?-->
         <scene sceneID="soi-xI-cbv">
             <objects>
                 <tableViewController id="TXA-JU-Hrf" customClass="CreateDataTableViewController" customModule="PocketMoney" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Hcn-h8-cGI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Hcn-h8-cGI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -29,6 +29,10 @@
                                                         <segment title="In"/>
                                                         <segment title="Out"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="inOutSegmentedControllerAction:" destination="TXA-JU-Hrf" eventType="valueChanged" id="c98-Dc-FIl"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -61,12 +65,26 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jmk-PS-GnZ">
-                                        <rect key="frame" x="0.0" y="187" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="222" id="jmk-PS-GnZ">
+                                        <rect key="frame" x="0.0" y="187" width="375" height="222"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jmk-PS-GnZ" id="f42-rM-qkQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="23A-Fi-YcJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="473800229.430924">
+                                                        <!--2016-01-06 19:10:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="23A-Fi-YcJ" secondAttribute="bottom" id="JLB-ng-68e"/>
+                                                <constraint firstItem="23A-Fi-YcJ" firstAttribute="leading" secondItem="f42-rM-qkQ" secondAttribute="leading" id="OO6-BS-LXJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="23A-Fi-YcJ" secondAttribute="trailing" id="dsF-E6-9pK"/>
+                                                <constraint firstItem="23A-Fi-YcJ" firstAttribute="top" secondItem="f42-rM-qkQ" secondAttribute="top" id="sG4-5r-EeN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -77,6 +95,17 @@
                             <outlet property="delegate" destination="TXA-JU-Hrf" id="i0g-Zx-10B"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="In or Out?" id="px2-gd-2LY">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="IwI-pK-ikG">
+                            <connections>
+                                <action selector="addBarButtonItemDidPress:" destination="TXA-JU-Hrf" id="9Aa-YZ-gRf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="AmountTextField" destination="fZE-SS-8Es" id="CWO-kX-LWr"/>
+                        <outlet property="inOutSegmentedController" destination="8gW-BK-IXD" id="bgR-d2-bzg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzG-FQ-BGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +168,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U1e-cV-1Ns">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="TXA-JU-Hrf" kind="show" id="9AO-uW-ldU"/>
+                                <segue destination="TXA-JU-Hrf" kind="show" identifier="AddDataSegue" id="9AO-uW-ldU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -10,7 +10,6 @@ import UIKit
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
-    var dataList:[Values] = testData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +29,18 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
+        print(AllData.dataList)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+        return AllData.dataList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell", forIndexPath: indexPath) as! StoryTableViewCell
         
-        let CellData = dataList[indexPath.row] as Values
+        let CellData = AllData.dataList[indexPath.row] as Values
         
         cell.amountLabel.text = CellData.amountString
         if CellData.positive {
