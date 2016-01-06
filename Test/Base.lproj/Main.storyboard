@@ -5,6 +5,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="lLs-jO-vhV">
+            <objects>
+                <viewController id="rwF-ZA-iup" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ffb-tH-xR1"/>
+                        <viewControllerLayoutGuide type="bottom" id="X4s-4P-1EP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ot9-Yw-Hg4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIq-bi-FHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.5" y="-493.5"/>
+        </scene>
         <!--In or Out?-->
         <scene sceneID="soi-xI-cbv">
             <objects>
@@ -98,7 +117,7 @@
                     <navigationItem key="navigationItem" title="In or Out?" id="px2-gd-2LY">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="IwI-pK-ikG">
                             <connections>
-                                <action selector="addBarButtonItemDidPress:" destination="TXA-JU-Hrf" id="9Aa-YZ-gRf"/>
+                                <action selector="addBarButtonItemDidPress:" destination="TXA-JU-Hrf" id="NCo-NT-ZjH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -120,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StoryCell" textLabel="2V5-fv-oAO" detailTextLabel="PH8-2V-TFb" imageView="H9N-lS-aCM" rowHeight="44" style="IBUITableViewCellStyleValue1" id="KWv-Ng-UmA" customClass="StoryTableViewCell" customModule="PocketMoney" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DataCell" textLabel="2V5-fv-oAO" detailTextLabel="PH8-2V-TFb" imageView="H9N-lS-aCM" rowHeight="44" style="IBUITableViewCellStyleValue1" id="KWv-Ng-UmA" customClass="StoryTableViewCell" customModule="PocketMoney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KWv-Ng-UmA" id="5K9-6J-mqA">
@@ -173,6 +192,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="MFR-0R-ygt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="Gpm-yU-2sU" kind="show" identifier="InfoSegue" id="cIM-mh-vZ9"/>
                         <segue destination="8CX-Xp-dvz" kind="presentation" identifier="MenuSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="niX-nk-092"/>

@@ -46,6 +46,7 @@ class CreateDataTableViewController: UITableViewController {
         
         if sufficientData {
             AllData.dataList.append(Values(value: amountString, positive: positive))
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     

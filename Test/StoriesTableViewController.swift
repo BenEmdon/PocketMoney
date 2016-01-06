@@ -16,9 +16,16 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         /*UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent ,animated: true)    //Depreciated  */
         
+        refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+    
+        
         tableView.estimatedRowHeight = 46
         
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        AllData.dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -26,6 +33,15 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        
+        AllData.dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
@@ -38,7 +54,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell", forIndexPath: indexPath) as! StoryTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         
         let CellData = AllData.dataList[indexPath.row] as Values
         
