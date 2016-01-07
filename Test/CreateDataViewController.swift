@@ -1,5 +1,5 @@
 //
-//  CreateDataTableViewController.swift
+//  CreateDataViewController.swift
 //  PocketMoney
 //
 //  Created by Benjamin Emdon on 2016-01-06.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class CreateDataTableViewController: UITableViewController {
+class CreateDataViewController: UIViewController {
 
     var amountString: Float! = nil
     var positive: Bool = true
+    var date: NSDate!
     
     @IBOutlet var AmountTextField: UITextField!
     
@@ -29,14 +30,21 @@ class CreateDataTableViewController: UITableViewController {
         }
     }
     
+    @IBOutlet var inputDate: UIDatePicker!
+
     
-    @IBAction func addBarButtonItemDidPress(sender: AnyObject) {
+    @IBAction func cancelButtonDidPress(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func addButtonDidPress(sender: AnyObject) {
         var sufficientData: Bool = false
         print("addDataButtonDidPress")
         if AmountTextField.text == "" {
             print("AmountTextField.text = empty")
         }
         else {
+            date = inputDate.date
             print(AmountTextField.text)
             amountString = (AmountTextField.text! as NSString).floatValue
             sufficientData = true
@@ -45,12 +53,12 @@ class CreateDataTableViewController: UITableViewController {
         
         
         if sufficientData {
-            AllData.dataList.append(Values(value: amountString, positive: positive))
+            AllData.dataList.append(Values(value: amountString, positive: positive, date: date))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
-
+    
     
     override func viewDidLoad() {
         print("viewLoaded")
@@ -62,4 +70,5 @@ class CreateDataTableViewController: UITableViewController {
     func handleTap(recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+
 }
