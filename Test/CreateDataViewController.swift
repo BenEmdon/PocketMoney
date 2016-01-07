@@ -3,7 +3,7 @@
 //  PocketMoney
 //
 //  Created by Benjamin Emdon on 2016-01-06.
-//  Copyright © 2016 Ben Emdon. All rights reserved.
+//  Copyright © 2016 Ben Emdon. 
 //
 
 import UIKit

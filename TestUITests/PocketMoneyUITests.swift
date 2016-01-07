@@ -3,7 +3,7 @@
 //  TestUITests
 //
 //  Created by Benjamin Emdon on 2015-12-27.
-//  Copyright © 2015 Ben Emdon. All rights reserved.
+//  Copyright © 2015 Ben Emdon. 
 //
 
 import XCTest
