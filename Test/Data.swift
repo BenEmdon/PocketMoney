@@ -19,15 +19,15 @@ struct Values {
     
     var timeCreated: NSDate
     
-    init(value: Float, positive: Bool) {
+    init(value: Float, positive: Bool, date: NSDate) {
         self.amountString = amount(value)
-        timeCreated = NSDate()
+        timeCreated = date
         self.positive = positive
     }
     
 }
 
 struct AllData {
-    static var dataList:[Values] = testData
+    static var dataList:[Values] = []
 }
 
