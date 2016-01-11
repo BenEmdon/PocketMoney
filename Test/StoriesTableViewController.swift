@@ -24,7 +24,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func viewDidAppear(animated: Bool) {
-        AllData.dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
         self.tableView.reloadData()
     }
     
@@ -36,7 +36,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         
-        AllData.dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
         
         self.tableView.reloadData()
         refreshControl.endRefreshing()
@@ -45,18 +45,18 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
-        print(AllData.dataList)
+        print(dataList)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AllData.dataList.count
+        return dataList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         
-        let CellData = AllData.dataList[indexPath.row] as Values
+        let CellData = dataList[indexPath.row] as Values
         
         cell.amountLabel.text = CellData.amountString
         if CellData.positive {

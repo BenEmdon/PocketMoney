@@ -16,9 +16,10 @@
 		1D2B8B451C302BA10043DBD1 /* PocketMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B441C302BA10043DBD1 /* PocketMoneyUITests.swift */; };
 		1D2B8B921C3041EF0043DBD1 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B911C3041EF0043DBD1 /* StoriesTableViewController.swift */; };
 		1D2B8B961C3056E30043DBD1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */; };
+		1D2CB9B31C444FAF00E0ED35 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CB9B21C444FAF00E0ED35 /* Data.swift */; };
 		1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */; };
 		1D64BB051C3EEFF60026C984 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */; };
-		1D6904F01C3C2DDD00DBA04D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6904EF1C3C2DDD00DBA04D /* Data.swift */; };
+		1D6904F01C3C2DDD00DBA04D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6904EF1C3C2DDD00DBA04D /* DataModel.swift */; };
 		1DD67CE91C3DF9CD003A052D /* CreateDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD67CE81C3DF9CD003A052D /* CreateDataViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +56,10 @@
 		1D2B8B461C302BA10043DBD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D2B8B911C3041EF0043DBD1 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
 		1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1D2CB9B21C444FAF00E0ED35 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		1D6904EF1C3C2DDD00DBA04D /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1D6904EF1C3C2DDD00DBA04D /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		1DD67CE81C3DF9CD003A052D /* CreateDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +151,8 @@
 		1D6904EE1C3C2DCF00DBA04D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1D6904EF1C3C2DDD00DBA04D /* Data.swift */,
+				1D6904EF1C3C2DDD00DBA04D /* DataModel.swift */,
+				1D2CB9B21C444FAF00E0ED35 /* Data.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -289,12 +292,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D2B8B921C3041EF0043DBD1 /* StoriesTableViewController.swift in Sources */,
-				1D6904F01C3C2DDD00DBA04D /* Data.swift in Sources */,
+				1D6904F01C3C2DDD00DBA04D /* DataModel.swift in Sources */,
 				1DD67CE91C3DF9CD003A052D /* CreateDataViewController.swift in Sources */,
 				1D64BB051C3EEFF60026C984 /* DetailsViewController.swift in Sources */,
 				1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */,
 				1D2B8B2A1C302BA10043DBD1 /* Test.xcdatamodeld in Sources */,
 				1D2B8B961C3056E30043DBD1 /* MenuViewController.swift in Sources */,
+				1D2CB9B31C444FAF00E0ED35 /* Data.swift in Sources */,
 				1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

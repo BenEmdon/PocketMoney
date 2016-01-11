@@ -53,7 +53,7 @@ class CreateDataViewController: UIViewController {
         
         
         if sufficientData {
-            AllData.dataList.append(Values(value: amountString, positive: positive, date: date))
+            dataList.append(Values(value: amountString, positive: positive, date: date))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
