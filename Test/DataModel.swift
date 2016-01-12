@@ -8,11 +8,12 @@
 
 import UIKit
 
-func amount(value: Float) -> String {
+func amountToString(value: Float) -> String {
     return "$" + String(format: "%.2f", value)
 }
 
 struct Values {
+    var amount:Float!
     var amountString: String
     
     var positive: Bool
@@ -20,8 +21,9 @@ struct Values {
     var timeCreated: NSDate
     
     init(value: Float, positive: Bool, date: NSDate) {
-        self.amountString = amount(value)
-        timeCreated = date
+        self.amount = value
+        self.amountString = amountToString(value)
+        self.timeCreated = date
         self.positive = positive
     }
     

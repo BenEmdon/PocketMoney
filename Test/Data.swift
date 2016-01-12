@@ -7,5 +7,5 @@
 //
 
 import UIKit
+import CoreData
 
-var dataList:[Values] = []
