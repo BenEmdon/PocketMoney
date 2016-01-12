@@ -28,11 +28,15 @@ class CreateDataUITableViewController: UITableViewController {
             inOutSegmentedController.tintColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
             positive = false
         }
+        if inOutSegmentedController.selectedSegmentIndex == 2 {
+            inOutSegmentedController.tintColor = UIColor(red:0.407, green:0.407, blue:0.407, alpha:1)
+            positive = false
+        }
+        
     }
     
     
     @IBAction func addButtonDidPress(sender: AnyObject) {
-        view.endEditing(true)
         var sufficientData: Bool = false
         print("addDataButtonDidPress")
         if AmountTextField.text == "" {
@@ -41,6 +45,7 @@ class CreateDataUITableViewController: UITableViewController {
         else {
             //TODO: date = inputDate.date
             date = NSDate()
+            
             print(AmountTextField.text)
             amountString = (AmountTextField.text! as NSString).floatValue
             sufficientData = true
@@ -49,6 +54,7 @@ class CreateDataUITableViewController: UITableViewController {
         
         
         if sufficientData {
+            view.endEditing(true)
             dataList.append(Values(value: amountString, positive: positive, date: date))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -69,6 +75,7 @@ class CreateDataUITableViewController: UITableViewController {
     
     //MARK: Cancel create data
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
+        view.endEditing(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

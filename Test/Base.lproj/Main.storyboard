@@ -25,14 +25,16 @@
                                     <segments>
                                         <segment title="In"/>
                                         <segment title="Out"/>
+                                        <segment title="IOU"/>
                                     </segments>
+                                    <color key="tintColor" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
-                                        <action selector="inOutSegmentedControllerAction:" destination="rwF-ZA-iup" eventType="valueChanged" id="NF8-uq-zDR"/>
                                         <action selector="inOutSegmentedControllerAction:" destination="Byg-Mw-0Mb" eventType="valueChanged" id="ZxJ-s9-ofE"/>
                                     </connections>
                                 </segmentedControl>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount in $" textAlignment="center" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="gkt-Nj-KEr">
                                     <rect key="frame" x="20" y="51" width="335" height="35"/>
+                                    <color key="tintColor" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="wxT-DO-keU"/>
                                     </constraints>
@@ -56,7 +58,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="I3G-TS-BTy">
                                         <rect key="frame" x="0.0" y="158" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3G-TS-BTy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3G-TS-BTy" id="GTb-fc-UXx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -64,7 +66,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rTq-UJ-cqP">
                                         <rect key="frame" x="0.0" y="202" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rTq-UJ-cqP">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rTq-UJ-cqP" id="WoG-Pn-sqv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -72,7 +74,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DAj-65-fcN">
                                         <rect key="frame" x="0.0" y="246" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAj-65-fcN">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAj-65-fcN" id="tSh-M4-jFJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -87,11 +89,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Value" id="wRl-Vi-A9J">
                         <barButtonItem key="leftBarButtonItem" image="Fill 23" id="j6B-5e-Tcd">
+                            <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelButtonDidPress:" destination="Byg-Mw-0Mb" id="Ud1-sF-3Zj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Fill 22" id="ejV-EB-Qbd">
+                            <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addButtonDidPress:" destination="Byg-Mw-0Mb" id="Bbw-Q9-3mj"/>
                             </connections>
@@ -114,6 +118,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WrB-Sn-pCd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="0.0"/>
+                            <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Byg-Mw-0Mb" kind="relationship" relationship="rootViewController" id="ulx-A3-OKD"/>
@@ -122,124 +131,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEB-Uj-oRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976.5" y="-505.5"/>
-        </scene>
-        <!--Create Data View Controller-->
-        <scene sceneID="lLs-jO-vhV">
-            <objects>
-                <viewController id="rwF-ZA-iup" customClass="CreateDataViewController" customModule="PocketMoney" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ffb-tH-xR1"/>
-                        <viewControllerLayoutGuide type="bottom" id="X4s-4P-1EP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ot9-Yw-Hg4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-Hy-MKd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E1-wg-58P">
-                                        <rect key="frame" x="140" y="30" width="95" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="95" id="5Ch-an-Y6G"/>
-                                            <constraint firstAttribute="height" constant="21" id="X1I-Kd-gqb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                        <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-vF-Jj4">
-                                        <rect key="frame" x="20" y="24" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="sR8-So-nHa"/>
-                                            <constraint firstAttribute="height" constant="32" id="xsZ-uX-WBD"/>
-                                        </constraints>
-                                        <state key="normal" image="Fill 23"/>
-                                        <connections>
-                                            <action selector="cancelButtonDidPress:" destination="rwF-ZA-iup" eventType="touchUpInside" id="ayA-ph-ZjC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-gL-Psv">
-                                        <rect key="frame" x="323" y="24" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="BEU-O0-bJA"/>
-                                            <constraint firstAttribute="width" constant="32" id="JHC-Wy-ywI"/>
-                                        </constraints>
-                                        <state key="normal" image="Fill 22"/>
-                                        <connections>
-                                            <action selector="addButtonDidPress:" destination="rwF-ZA-iup" eventType="touchUpInside" id="S6F-tr-6e2"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.78431373829999995" green="0.78431373829999995" blue="0.78431373829999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="JAA-ey-dQn"/>
-                                    <constraint firstItem="9E1-wg-58P" firstAttribute="centerX" secondItem="0v0-Hy-MKd" secondAttribute="centerX" id="NHo-oe-hdk"/>
-                                    <constraint firstAttribute="trailing" secondItem="FYC-gL-Psv" secondAttribute="trailing" constant="20" id="eM0-Du-Rb1"/>
-                                    <constraint firstItem="5ug-vF-Jj4" firstAttribute="leading" secondItem="0v0-Hy-MKd" secondAttribute="leading" constant="20" id="htf-q3-NPQ"/>
-                                    <constraint firstItem="5ug-vF-Jj4" firstAttribute="centerY" secondItem="9E1-wg-58P" secondAttribute="centerY" id="kfp-3W-8Vz"/>
-                                    <constraint firstAttribute="bottom" secondItem="9E1-wg-58P" secondAttribute="bottom" constant="13" id="rd5-BO-ChY"/>
-                                    <constraint firstItem="FYC-gL-Psv" firstAttribute="centerY" secondItem="9E1-wg-58P" secondAttribute="centerY" id="vq9-qP-87t"/>
-                                </constraints>
-                            </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iZF-ju-KiS">
-                                <rect key="frame" x="20" y="72" width="335" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="EsL-0Q-6CY"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="In"/>
-                                    <segment title="Out"/>
-                                </segments>
-                                <connections>
-                                    <action selector="inOutSegmentedControllerAction:" destination="rwF-ZA-iup" eventType="valueChanged" id="NWm-0Y-dsK"/>
-                                </connections>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount in $" textAlignment="center" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="qMA-ox-sJa">
-                                <rect key="frame" x="20" y="115" width="335" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="5hI-RS-nKy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Qm-j2-axs">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="4Kc-tM-e6c"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="473820586.93226802">
-                                    <!--2016-01-07 00:49:46 +0000-->
-                                </date>
-                            </datePicker>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iZF-ju-KiS" secondAttribute="trailing" constant="20" id="Ezw-Ev-QZj"/>
-                            <constraint firstItem="X4s-4P-1EP" firstAttribute="top" secondItem="7Qm-j2-axs" secondAttribute="bottom" id="IXj-Cv-hn0"/>
-                            <constraint firstItem="qMA-ox-sJa" firstAttribute="leading" secondItem="Ot9-Yw-Hg4" secondAttribute="leading" constant="20" id="JRm-yK-V3A"/>
-                            <constraint firstItem="0v0-Hy-MKd" firstAttribute="top" secondItem="Ot9-Yw-Hg4" secondAttribute="top" id="LOw-BX-oky"/>
-                            <constraint firstItem="7Qm-j2-axs" firstAttribute="leading" secondItem="Ot9-Yw-Hg4" secondAttribute="leading" id="OGO-XC-mSW"/>
-                            <constraint firstAttribute="trailing" secondItem="qMA-ox-sJa" secondAttribute="trailing" constant="20" id="SZS-hO-gnx"/>
-                            <constraint firstAttribute="trailing" secondItem="0v0-Hy-MKd" secondAttribute="trailing" id="gHA-bb-KSf"/>
-                            <constraint firstItem="0v0-Hy-MKd" firstAttribute="leading" secondItem="Ot9-Yw-Hg4" secondAttribute="leading" id="nkj-MQ-iCf"/>
-                            <constraint firstItem="qMA-ox-sJa" firstAttribute="top" secondItem="iZF-ju-KiS" secondAttribute="bottom" constant="8" id="ooF-av-zri"/>
-                            <constraint firstItem="iZF-ju-KiS" firstAttribute="leading" secondItem="Ot9-Yw-Hg4" secondAttribute="leading" constant="20" id="rvf-wp-zwu"/>
-                            <constraint firstAttribute="trailing" secondItem="7Qm-j2-axs" secondAttribute="trailing" id="srp-t4-ZlU"/>
-                            <constraint firstItem="iZF-ju-KiS" firstAttribute="top" secondItem="0v0-Hy-MKd" secondAttribute="bottom" constant="8" id="xzl-1T-1YN"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="AmountTextField" destination="qMA-ox-sJa" id="4NW-7A-2Aw"/>
-                        <outlet property="inOutSegmentedController" destination="iZF-ju-KiS" id="PgP-mg-YHD"/>
-                        <outlet property="inputDate" destination="7Qm-j2-axs" id="LmA-ft-BLm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CIq-bi-FHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2005.5" y="-72.5"/>
         </scene>
         <!--Ins & Outs-->
         <scene sceneID="ycF-3x-uno">
@@ -308,7 +199,7 @@
                     </refreshControl>
                     <connections>
                         <segue destination="Gpm-yU-2sU" kind="show" identifier="InfoSegue" id="cIM-mh-vZ9"/>
-                        <segue destination="8CX-Xp-dvz" kind="presentation" identifier="MenuSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="niX-nk-092"/>
+                        <segue destination="8CX-Xp-dvz" kind="presentation" identifier="MenuSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="niX-nk-092"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6t-ig-JMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
