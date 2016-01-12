@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateDataUITableViewController: UITableViewController {
     
-    var amountString: Float! = nil
+    var amountFloat: Float! = nil
     var positive: Bool = true
     var date: NSDate!
     
@@ -43,11 +44,11 @@ class CreateDataUITableViewController: UITableViewController {
             print("AmountTextField.text = empty")
         }
         else {
-            //TODO: date = inputDate.date
+            // TODO: date = inputDate.date
             date = NSDate()
             
             print(AmountTextField.text)
-            amountString = (AmountTextField.text! as NSString).floatValue
+            amountFloat = (AmountTextField.text! as NSString).floatValue
             sufficientData = true
         }
         
@@ -55,11 +56,12 @@ class CreateDataUITableViewController: UITableViewController {
         
         if sufficientData {
             view.endEditing(true)
-            dataList.append(Values(value: amountString, positive: positive, date: date))
+            // values.append()
+            // TODO: saveValue()
+            saveValue(amountFloat, positive: positive)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
-    
     
     
     override func viewDidLoad() {
@@ -73,10 +75,51 @@ class CreateDataUITableViewController: UITableViewController {
         view.endEditing(true)
     }
     
-    //MARK: Cancel create data
+    // MARK: Cancel create data
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
         view.endEditing(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: Helper Methods
+    func saveValue(amount: Float, positive: Bool) {
+        
+        // Retrieve the managed object context in app delegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        // Add a value to the managed object context
+        let entity = NSEntityDescription.entityForName("Value", inManagedObjectContext: managedContext)
+        let value = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        // Set attributes
+        value.setValue(amount, forKey: "amount")
+        
+        let amountString = amountToString(amount)
+        value.setValue(amountString, forKey: "amountString")
+        value.setValue(positive, forKey: "positive")
+        
+        // Save the managed object in context
+        do {
+            try managedContext.save()
+        }
+        catch {
+            print("Could not cache the response \(error)")
+        }
+        
+        // Add the new value to the local data source
+        values.append(value)
+        
+        
+        
+    }
+    
+    func amountToString(value: Float) -> String {
+        return "$" + String(format: "%.2f", value)
+    }
+    
+    
+    
+    
 
 }

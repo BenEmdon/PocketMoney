@@ -7,25 +7,28 @@
 //
 
 import UIKit
+import CoreData
+
+var values = [NSManagedObject]()
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
-
+    // MARK: Variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent ,animated: true)    //Depreciated  */
-        
-        refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        // TODO: remove refreshControl
+        //refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
     
+        fetchData()
         
-        tableView.estimatedRowHeight = 46
+        tableView.estimatedRowHeight = 44
         
     }
     
     override func viewDidAppear(animated: Bool) {
-        dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        // TODO: values.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
         self.tableView.reloadData()
     }
     
@@ -37,37 +40,46 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         
-        dataList.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+        // TODO: values.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
         
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
     
+    
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
-        print(dataList)
+        print(values)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+        return values.count
+    }
+    
+    func amountToString(value: Float) -> String {
+        return "$" + String(format: "%.2f", value)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         
-        let CellData = dataList[indexPath.row] as Values
+        let value = values[indexPath.row]
         
-        cell.amountLabel.text = CellData.amountString
-        if CellData.positive {
+        let positive = value.valueForKey("positive") as! Bool
+        
+        // TODO: let timeCreated: NSDate
+        
+        cell.amountLabel.text = value.valueForKey("amountString") as? String
+        
+        if positive {
             cell.badgeImage.image = UIImage(named: "Plus")
         }
         else {
             cell.badgeImage.image = UIImage(named: "Minus")
         }
-        cell.timeLabel.text = timeAgoSinceDate(CellData.timeCreated, numericDates: true)
-        
+
         cell.delegate = self
         
         return cell
@@ -79,68 +91,25 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    //MARK: Not mine
-    
-    func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
-        let calendar = NSCalendar.currentCalendar()
-        let now = NSDate()
-        let earliest = now.earlierDate(date)
-        let latest = (earliest == now) ? date : now
-        let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+    func fetchData() {
+        // Get the managed object context
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
         
-        if (components.year >= 2) {
-            return "\(components.year)y"
-        } else if (components.year >= 1){
-            if (numericDates){
-                return "1y"
-            } else {
-                return ""
-            }
-        } else if (components.month >= 2) {
-            return "\(components.month)m"
-        } else if (components.month >= 1){
-            if (numericDates){
-                return "1m"
-            } else {
-                return ""
-            }
-        } else if (components.weekOfYear >= 2) {
-            return "\(components.weekOfYear)w"
-        } else if (components.weekOfYear >= 1){
-            if (numericDates){
-                return "1w"
-            } else {
-                return ""
-            }
-        } else if (components.day >= 2) {
-            return "\(components.day)d"
-        } else if (components.day >= 1){
-            if (numericDates){
-                return "1d"
-            } else {
-                return ""
-            }
-        } else if (components.hour >= 2) {
-            return "\(components.hour)h"
-        } else if (components.hour >= 1){
-            if (numericDates){
-                return "1h"
-            } else {
-                return ""
-            }
-        } else if (components.minute >= 2) {
-            return "\(components.minute)m"
-        } else if (components.minute >= 1){
-            if (numericDates){
-                return "1m"
-            } else {
-                return ""
-            }
-        } else if (components.second >= 3) {
-            return "\(components.second)s"
-        } else {
-            return "now"
+        // Create a fetch request into Core Data
+        let fetchRequest = NSFetchRequest(entityName: "Value")
+        
+        // Execute fetch request
+        do {
+            values = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+        }
+        catch {
+            print("Fetch failed: \(error)")
         }
         
+        //let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest)
+        
+        
     }
+    
 }
