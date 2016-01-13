@@ -39,7 +39,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         performSegueWithIdentifier("InfoSegue", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-        // TODO: values.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -52,10 +51,10 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         if positive {
-            cell.badgeImage.image = UIImage(named: "Plus")
+            cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
         }
         if !positive {
-            cell.badgeImage.image = UIImage(named: "Minus")
+            cell.colorViewDescription.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
         }
         
         cell.delegate = self
