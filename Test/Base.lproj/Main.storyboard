@@ -59,11 +59,11 @@
                                         <rect key="frame" x="0.0" y="158" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3G-TS-BTy" id="GTb-fc-UXx">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ffl-xK-BvW">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,11 +76,11 @@
                                         <rect key="frame" x="0.0" y="202" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rTq-UJ-cqP" id="WoG-Pn-sqv">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IZ0-Zk-rZj">
-                                                    <rect key="frame" x="15" y="0.0" width="321" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="321" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,11 +93,11 @@
                                         <rect key="frame" x="0.0" y="246" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAj-65-fcN" id="tSh-M4-jFJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Sp-86-eEP">
-                                                    <rect key="frame" x="15" y="0.0" width="321" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="321" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -168,29 +168,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DataCell" textLabel="2V5-fv-oAO" detailTextLabel="PH8-2V-TFb" imageView="H9N-lS-aCM" rowHeight="44" style="IBUITableViewCellStyleValue1" id="KWv-Ng-UmA" customClass="StoryTableViewCell" customModule="PocketMoney" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DataCell" textLabel="2V5-fv-oAO" detailTextLabel="PH8-2V-TFb" imageView="H9N-lS-aCM" rowHeight="88" style="IBUITableViewCellStyleValue1" id="KWv-Ng-UmA" customClass="StoryTableViewCell" customModule="PocketMoney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KWv-Ng-UmA" id="5K9-6J-mqA">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2V5-fv-oAO">
-                                            <rect key="frame" x="60" y="12" width="57" height="20"/>
+                                            <rect key="frame" x="60" y="34" width="57" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PH8-2V-TFb">
-                                            <rect key="frame" x="304" y="12" width="36" height="20"/>
+                                            <rect key="frame" x="304" y="34" width="36" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Plus" id="H9N-lS-aCM">
-                                            <rect key="frame" x="15" y="6" width="30" height="30"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="415AF7B7-99F1-4A33-9F3E-E3142A4C75FC" id="H9N-lS-aCM">
+                                            <rect key="frame" x="15" y="28" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -383,9 +383,95 @@
         </scene>
     </scenes>
     <resources>
+        <image name="415AF7B7-99F1-4A33-9F3E-E3142A4C75FC" width="30" height="30">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGQkNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QDwcI
+ERYbHCUmJygwMzY8P1UkbnVsbNQJCgsMDQ4PEFYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVwc1dOU0Nv
+bG9ygA4SAMAAAIACgAzSEgkTFVpOUy5vYmplY3RzoRSAA4AL0hIJFxqiGBmABIAFgAoQANUdHh8gCSEb
+IiMkVk5TU2l6ZV8QD05TQml0c1BlclNhbXBsZV8QEE5TQ29sb3JTcGFjZU5hbWVZTlNQREZEYXRhgAaA
+B4AIgAlYezMwLCAzMH1fEBlOU0NhbGlicmF0ZWRSR0JDb2xvclNwYWNlTxEQmCVQREYtMS4zCiXE5fLl
+66fzoNDExgo0IDAgb2JqCjw8IC9MZW5ndGggNSAwIFIgL0ZpbHRlciAvRmxhdGVEZWNvZGUgPj4Kc3Ry
+ZWFtCngBpVTLasMwELzrK/YcsKuHJdnnfkFP+QBDScENhPw/dHYlWSp+0NBLRpFX0s7M7j7ogx7UGU9G
+G/omF7SsFll1PgRa5HNe3prY64XuhJN2wEET+uDD6BX+mZGs793g+FqsI82CYwpZY8nhMc+/+O7yAd6z
+ZHOs4rWcB653llh+S96f6bZmImnpPtAXvb0/Dc1P0r1DbsFGpfsxDl5PI/aGadRusvScKZLzIGEd48Jo
+JmBMcKPPrUyKBXtFJt2oRCA5khHKQ1BYu6TRkCQCr6wnBSYWWoWwY6kG2nTWNtcVfUReVlfU4QTOxIEk
+G3GUiGO4NFgUZgzsWKSYYFec3RpShzUkHqOGpFYWRocHwDIDKmBhDjnuelF3JLvr8B6J7LDNDttMgjGq
+juHvJEBaemLTCHCRSwjmFOeqRcwHpFDl2XH+B3NKpPg08052TtVAFgHE51+O45XisdQHOyyLjcOqLf8j
+ceBnRO4AmAvhzYpJeCl/9Y8pkRod46WSVqXFs+2iT21xlELTBKnRZ9krxGusVSgQ0ajeCdmqnHnQsEol
+k7NGOJoSmAksE0Bkwqgo2MjUDEgM09emhDgNlVgSNBpIFUSRKvnKtZrDzigcOm2ZAhd9Sr3iSuEHpvA6
+pgplbmRzdHJlYW0KZW5kb2JqCjUgMCBvYmoKNDc3CmVuZG9iagoyIDAgb2JqCjw8IC9UeXBlIC9QYWdl
+IC9QYXJlbnQgMyAwIFIgL1Jlc291cmNlcyA2IDAgUiAvQ29udGVudHMgNCAwIFIgL01lZGlhQm94IFsw
+IDAgMzAgMzBdCj4+CmVuZG9iago2IDAgb2JqCjw8IC9Qcm9jU2V0IFsgL1BERiBdIC9Db2xvclNwYWNl
+IDw8IC9DczEgNyAwIFIgPj4gPj4KZW5kb2JqCjggMCBvYmoKPDwgL0xlbmd0aCA5IDAgUiAvTiAzIC9B
+bHRlcm5hdGUgL0RldmljZVJHQiAvRmlsdGVyIC9GbGF0ZURlY29kZSA+PgpzdHJlYW0KeAGdlndUU9kW
+h8+9N73QEiIgJfQaegkg0jtIFQRRiUmAUAKGhCZ2RAVGFBEpVmRUwAFHhyJjRRQLg4Ji1wnyEFDGwVFE
+ReXdjGsJ7601896a/cdZ39nnt9fZZ+9917oAUPyCBMJ0WAGANKFYFO7rwVwSE8vE9wIYEAEOWAHA4WZm
+BEf4RALU/L09mZmoSMaz9u4ugGS72yy/UCZz1v9/kSI3QyQGAApF1TY8fiYX5QKUU7PFGTL/BMr0lSky
+hjEyFqEJoqwi48SvbPan5iu7yZiXJuShGlnOGbw0noy7UN6aJeGjjAShXJgl4GejfAdlvVRJmgDl9yjT
+0/icTAAwFJlfzOcmoWyJMkUUGe6J8gIACJTEObxyDov5OWieAHimZ+SKBIlJYqYR15hp5ejIZvrxs1P5
+YjErlMNN4Yh4TM/0tAyOMBeAr2+WRQElWW2ZaJHtrRzt7VnW5mj5v9nfHn5T/T3IevtV8Sbsz55BjJ5Z
+32zsrC+9FgD2JFqbHbO+lVUAtG0GQOXhrE/vIADyBQC03pzzHoZsXpLE4gwnC4vs7GxzAZ9rLivoN/uf
+gm/Kv4Y595nL7vtWO6YXP4EjSRUzZUXlpqemS0TMzAwOl89k/fcQ/+PAOWnNycMsnJ/AF/GF6FVR6JQJ
+hIlou4U8gViQLmQKhH/V4X8YNicHGX6daxRodV8AfYU5ULhJB8hvPQBDIwMkbj96An3rWxAxCsi+vGit
+ka9zjzJ6/uf6Hwtcim7hTEEiU+b2DI9kciWiLBmj34RswQISkAd0oAo0gS4wAixgDRyAM3AD3iAAhIBI
+EAOWAy5IAmlABLJBPtgACkEx2AF2g2pwANSBetAEToI2cAZcBFfADXALDIBHQAqGwUswAd6BaQiC8BAV
+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
+JwpPKp6qP6391fjXZqm99Oyg12DPs4hnj4a4Qy//lfmvT8MFz6nPK0a0RupHrUfPjPmM3Xqx9MXwy4yX
+0+OFvyn+tveV0auffnf7vWdiycTwa9HrmT9K3qi+OfrW9m3nZOjk03dp76anit6rvj/2gf2h+2P0x5Hp
+7E/4T5WfjT93fAn88ngmbWbm3/eE8/sKZW5kc3RyZWFtCmVuZG9iago5IDAgb2JqCjI2MTIKZW5kb2Jq
+CjcgMCBvYmoKWyAvSUNDQmFzZWQgOCAwIFIgXQplbmRvYmoKMyAwIG9iago8PCAvVHlwZSAvUGFnZXMg
+L01lZGlhQm94IFswIDAgMzAgMzBdIC9Db3VudCAxIC9LaWRzIFsgMiAwIFIgXSA+PgplbmRvYmoKMTAg
+MCBvYmoKPDwgL1R5cGUgL0NhdGFsb2cgL1BhZ2VzIDMgMCBSID4+CmVuZG9iagoxMSAwIG9iagooTWFj
+IE9TIFggMTAuMTEuMiBRdWFydHogUERGQ29udGV4dCkKZW5kb2JqCjEyIDAgb2JqCihEOjIwMTUxMjI4
+MTI0OTQwWjAwJzAwJykKZW5kb2JqCjEgMCBvYmoKPDwgL1Byb2R1Y2VyIDExIDAgUiAvQ3JlYXRpb25E
+YXRlIDEyIDAgUiAvTW9kRGF0ZSAxMiAwIFIgPj4KZW5kb2JqCnhyZWYKMCAxMwowMDAwMDAwMDAwIDY1
+NTM1IGYgCjAwMDAwMDM3NTYgMDAwMDAgbiAKMDAwMDAwMDU5MiAwMDAwMCBuIAowMDAwMDAzNTMwIDAw
+MDAwIG4gCjAwMDAwMDAwMjIgMDAwMDAgbiAKMDAwMDAwMDU3MyAwMDAwMCBuIAowMDAwMDAwNjk0IDAw
+MDAwIG4gCjAwMDAwMDM0OTUgMDAwMDAgbiAKMDAwMDAwMDc2MiAwMDAwMCBuIAowMDAwMDAzNDc1IDAw
+MDAwIG4gCjAwMDAwMDM2MTEgMDAwMDAgbiAKMDAwMDAwMzY2MSAwMDAwMCBuIAowMDAwMDAzNzE0IDAw
+MDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgMTMgL1Jvb3QgMTAgMCBSIC9JbmZvIDEgMCBSIC9JRCBbIDxk
+ODg1Y2ZmNWMwZTQ2NDBiOGRlMGUyMzc4NGJkM2Q5ZD4KPGQ4ODVjZmY1YzBlNDY0MGI4ZGUwZTIzNzg0
+YmQzZDlkPiBdID4+CnN0YXJ0eHJlZgozODMxCiUlRU9GCtIpKissWiRjbGFzc25hbWVYJGNsYXNzZXNd
+TlNQREZJbWFnZVJlcKMtLi9dTlNQREZJbWFnZVJlcFpOU0ltYWdlUmVwWE5TT2JqZWN00ikqMTJXTlNB
+cnJheaIxL9IpKjQ1Xk5TTXV0YWJsZUFycmF5ozQxL9M3OAk5OjtXTlNXaGl0ZVxOU0NvbG9yU3BhY2VE
+MCAwABADgA3SKSo9PldOU0NvbG9yoj0v0ikqQEFXTlNJbWFnZaJAL18QD05TS2V5ZWRBcmNoaXZlctFE
+RVRyb290gAEACAARABoAIwAtADIANwBJAE8AWABfAGwAcwB7AH0AggCEAIYAiwCWAJgAmgCcAKEApACm
+AKgAqgCsALcAvgDQAOMA7QDvAPEA8wD1AP4BGhG2EbsRxhHPEd0R4RHvEfoSAxIIEhASExIYEicSKxIy
+EjoSRxJMEk4SUBJVEl0SYBJlEm0ScBKCEoUSigAAAAAAAAIBAAAAAAAAAEYAAAAAAAAAAAAAAAAAABKM
+A
+</mutableData>
+        </image>
         <image name="Fill 22" width="32" height="32"/>
         <image name="Fill 23" width="32" height="32"/>
-        <image name="Plus" width="30" height="30"/>
         <image name="coin_dollar" width="32" height="32"/>
         <image name="icon-hamburger" width="22" height="16"/>
     </resources>

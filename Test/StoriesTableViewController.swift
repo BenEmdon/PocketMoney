@@ -19,7 +19,8 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 44
+        // rowHeight overides all
+        tableView.rowHeight = 88
         fetchData()
         
     }
