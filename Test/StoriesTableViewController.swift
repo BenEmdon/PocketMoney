@@ -13,6 +13,8 @@ var values = [NSManagedObject]()
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
+    var indexToPass = 0
+    
     // MARK: Overriden functions
     
     override func viewDidLoad() {
@@ -32,6 +34,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        indexToPass = indexPath.row
         performSegueWithIdentifier("InfoSegue", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -59,8 +62,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("InfoSegue", sender: self)
-        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -91,6 +92,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "InfoSegue" {
+            if let destinationVC = segue.destinationViewController as? DetailsViewController {
+                destinationVC.numberToDisplay = indexToPass
+            }
+        }
+    }
     
     
     

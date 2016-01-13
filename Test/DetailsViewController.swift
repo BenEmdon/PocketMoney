@@ -12,10 +12,12 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet var tempLabel: UILabel!
     
+    var numberToDisplay = -100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        tempLabel.text = "The numberToDisplay =  \(numberToDisplay)."
 
         // Do any additional setup after loading the view.
     }
