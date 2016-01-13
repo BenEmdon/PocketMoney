@@ -56,8 +56,6 @@ class CreateDataUITableViewController: UITableViewController {
         
         if sufficientData {
             view.endEditing(true)
-            // values.append()
-            // TODO: saveValue()
             saveValue(amountFloat, positive: positive)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -84,6 +82,9 @@ class CreateDataUITableViewController: UITableViewController {
     // MARK: Helper Methods
     func saveValue(amount: Float, positive: Bool) {
         
+        // temporary NSDate create
+        let date = NSDate()
+        
         // Retrieve the managed object context in app delegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -94,10 +95,11 @@ class CreateDataUITableViewController: UITableViewController {
         
         // Set attributes
         value.setValue(amount, forKey: "amount")
-        
         let amountString = amountToString(amount)
         value.setValue(amountString, forKey: "amountString")
         value.setValue(positive, forKey: "positive")
+        value.setValue(date, forKey: "transactionDate")
+        
         
         // Save the managed object in context
         do {

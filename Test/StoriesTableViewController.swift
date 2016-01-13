@@ -49,6 +49,10 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         // TODO: let timeCreated: NSDate
         
+        let dateObject = value.valueForKey("transactionDate") as! NSDate
+        cell.timeLabel.text = dateToHourMinuteString(dateObject)
+        
+        
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         if positive {
             cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
@@ -101,9 +105,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
     }
     
-    
-    
-    
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
         print(values)
@@ -131,10 +132,13 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         catch {
             print("Fetch failed: \(error)")
         }
-        
-        //let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest)
-        
-        
+    }
+    
+    func dateToHourMinuteString(date: NSDate) -> String {
+        let hour = NSCalendar.currentCalendar().component(NSCalendarUnit.Hour, fromDate: date)
+        let minute = NSCalendar.currentCalendar().component(NSCalendarUnit.Minute, fromDate: date)
+        let time = String(hour) + ":" + String(minute)
+        return time
     }
     
 }

@@ -183,9 +183,10 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thz-gU-FqL">
-                                            <rect key="frame" x="16" y="23" width="318" height="21"/>
+                                            <rect key="frame" x="16" y="23" width="186" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="g3a-Q7-ghF"/>
+                                                <constraint firstAttribute="width" constant="186" id="rlN-xK-dSW"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -196,19 +197,32 @@
                                                 <constraint firstAttribute="height" constant="21" id="rbo-aQ-oTD"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.78431373829999995" green="0.78431373829999995" blue="0.78431373829999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrN-wE-1Ea">
+                                            <rect key="frame" x="202" y="23" width="140" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="SDM-o0-M5u"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="u0P-jH-gtF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="EMC-Xv-Z6P" firstAttribute="top" secondItem="lrN-wE-1Ea" secondAttribute="bottom" id="CpI-cW-oZT"/>
                                         <constraint firstItem="thz-gU-FqL" firstAttribute="top" secondItem="5K9-6J-mqA" secondAttribute="top" constant="23" id="Dw3-9A-hks"/>
-                                        <constraint firstAttribute="trailing" secondItem="thz-gU-FqL" secondAttribute="trailing" constant="8" id="Mhu-RV-7ZJ"/>
+                                        <constraint firstItem="lrN-wE-1Ea" firstAttribute="leading" secondItem="thz-gU-FqL" secondAttribute="trailing" id="FPk-dt-gpv"/>
                                         <constraint firstAttribute="bottom" secondItem="VUo-dv-FOd" secondAttribute="bottom" constant="8" id="T5U-Xc-9Dv"/>
                                         <constraint firstAttribute="trailing" secondItem="EMC-Xv-Z6P" secondAttribute="trailing" constant="8" id="UqM-ma-EJl"/>
+                                        <constraint firstAttribute="trailing" secondItem="lrN-wE-1Ea" secondAttribute="trailing" id="a24-PW-ZWr"/>
                                         <constraint firstItem="EMC-Xv-Z6P" firstAttribute="leading" secondItem="VUo-dv-FOd" secondAttribute="trailing" constant="8" id="bAa-Fq-gGb"/>
                                         <constraint firstItem="thz-gU-FqL" firstAttribute="leading" secondItem="VUo-dv-FOd" secondAttribute="trailing" constant="8" id="bWk-hZ-r3g"/>
                                         <constraint firstItem="VUo-dv-FOd" firstAttribute="leading" secondItem="5K9-6J-mqA" secondAttribute="leading" id="dKf-uP-GE8"/>
                                         <constraint firstItem="EMC-Xv-Z6P" firstAttribute="top" secondItem="thz-gU-FqL" secondAttribute="bottom" id="eG4-Nh-e16"/>
+                                        <constraint firstItem="lrN-wE-1Ea" firstAttribute="leading" secondItem="thz-gU-FqL" secondAttribute="trailing" id="gkq-uz-W11"/>
                                         <constraint firstItem="VUo-dv-FOd" firstAttribute="top" secondItem="5K9-6J-mqA" secondAttribute="top" constant="8" id="h0S-5b-bSo"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -216,6 +230,7 @@
                                     <outlet property="amountLabel" destination="thz-gU-FqL" id="oOF-7b-vTt"/>
                                     <outlet property="colorViewDescription" destination="VUo-dv-FOd" id="hVl-OE-aay"/>
                                     <outlet property="descriptionLabel" destination="EMC-Xv-Z6P" id="kBQ-8r-9eu"/>
+                                    <outlet property="timeLabel" destination="lrN-wE-1Ea" id="Tf8-t5-byt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
