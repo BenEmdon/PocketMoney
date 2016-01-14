@@ -110,7 +110,7 @@ class CreateDataUITableViewController: UITableViewController {
         }
         
         // Add the new value to the local data source
-        values.append(value)
+        values = [value] + values
         
         
         

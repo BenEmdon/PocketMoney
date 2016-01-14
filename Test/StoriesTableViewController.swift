@@ -25,9 +25,12 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        // TODO: values.sortInPlace({ $0.timeCreated.compare($1.timeCreated) == NSComparisonResult.OrderedDescending })
+    override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // Nothing here anymore
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,6 +127,13 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         // Create a fetch request into Core Data
         let fetchRequest = NSFetchRequest(entityName: "Value")
+        // Max batch size, for demo purposes
+        fetchRequest.fetchBatchSize = 100
+        
+        // Sort by transaction date
+        let sectionSortDescriptor = NSSortDescriptor(key: "transactionDate", ascending: false)
+        let sortDescriptors = [sectionSortDescriptor]
+        fetchRequest.sortDescriptors = sortDescriptors
         
         // Execute fetch request
         do {
