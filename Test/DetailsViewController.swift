@@ -12,14 +12,14 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet var tempLabel: UILabel!
     
-    var numberToDisplay = 0
+    var indexPassedBySegue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTabBarVisible(false, animated: true)
         
-        tempLabel.text = "The numberToDisplay =  \(numberToDisplay)."
+        tempLabel.text = values[indexPassedBySegue].valueForKey("amountString") as? String
 
         // Do any additional setup after loading the view.
     }
