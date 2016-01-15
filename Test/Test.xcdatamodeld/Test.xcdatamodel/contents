@@ -4,10 +4,11 @@
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="amountString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iou" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="positive" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="transactionDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Value" positionX="-45" positionY="0" width="128" height="120"/>
+        <element name="Value" positionX="-45" positionY="0" width="128" height="135"/>
     </elements>
 </model>
