@@ -60,21 +60,25 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         let value = values[indexPath.row]
         
-        let positive = value.valueForKey("positive") as! Bool
+        
         
         // TODO: let timeCreated: NSDate
         
+        cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
         cell.timeLabel.text = timeAgoSinceDate(dateObject, numericDates: true)
-        
-        
-        cell.amountLabel.text = value.valueForKey("amountString") as? String
-        if positive {
-            cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
+        let iouBool = value.valueForKey("iou") as! Bool
+        let positive = value.valueForKey("positive") as! Bool
+        cell.descriptionLabel.text = value.valueForKey("descriptionString") as? String
+        if !iouBool {
+            if positive {
+                cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
+            }
+            if !positive {
+                cell.colorViewDescription.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
+            }
         }
-        if !positive {
-            cell.colorViewDescription.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
-        }
+        
         
         cell.delegate = self
         return cell
@@ -210,13 +214,5 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
     }
     
-    
-    /*
-    func dateToHourMinuteString(date: NSDate) -> String {
-        let hour = NSCalendar.currentCalendar().component(NSCalendarUnit.Hour, fromDate: date)
-        let minute = NSCalendar.currentCalendar().component(NSCalendarUnit.Minute, fromDate: date)
-        let time = String(hour) + ":" + String(minute)
-        return time
-    }*/
     
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D05DD0F1C47349F00E219CF /* DataHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D05DD0E1C47349F00E219CF /* DataHelperMethods.swift */; };
 		1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */; };
 		1D2B8B271C302BA10043DBD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2B8B251C302BA10043DBD1 /* Main.storyboard */; };
 		1D2B8B2A1C302BA10043DBD1 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B8B281C302BA10043DBD1 /* Test.xcdatamodeld */; };
@@ -70,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D05DD0E1C47349F00E219CF /* DataHelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelperMethods.swift; sourceTree = "<group>"; };
 		1D2B8B1E1C302BA10043DBD1 /* PocketMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2B8B261C302BA10043DBD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */,
 				1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */,
 				1DD29C801C481CC500F6ACA9 /* BalanceViewController.swift */,
-				1D6904EE1C3C2DCF00DBA04D /* DataModel */,
 				1D2B8B251C302BA10043DBD1 /* Main.storyboard */,
 				1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */,
 				1D2B8B2D1C302BA10043DBD1 /* LaunchScreen.storyboard */,
@@ -207,14 +204,6 @@
 			);
 			name = PocketMoneyUITests;
 			path = TestUITests;
-			sourceTree = "<group>";
-		};
-		1D6904EE1C3C2DCF00DBA04D /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D05DD0E1C47349F00E219CF /* DataHelperMethods.swift */,
-			);
-			name = DataModel;
 			sourceTree = "<group>";
 		};
 		1DD29C441C47F6C400F6ACA9 /* Spring */ = {
@@ -390,7 +379,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D05DD0F1C47349F00E219CF /* DataHelperMethods.swift in Sources */,
 				1DD29C751C47F6C400F6ACA9 /* Spring.swift in Sources */,
 				1D2B8B921C3041EF0043DBD1 /* StoriesTableViewController.swift in Sources */,
 				1DD29C6E1C47F6C400F6ACA9 /* ImageLoader.swift in Sources */,
