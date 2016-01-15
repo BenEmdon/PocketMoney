@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateDataUITableViewController: UITableViewController {
+class CreateDataUITableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: Local view variables
     var positive: Bool = true //
@@ -70,6 +70,8 @@ class CreateDataUITableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.descriptionLabel.delegate = self;
+        
         // Format date
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.FullStyle
@@ -86,8 +88,14 @@ class CreateDataUITableViewController: UITableViewController {
         view.endEditing(true)
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     // MARK: Cancel create data
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
+        descriptionLabel.resignFirstResponder()
         view.endEditing(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
