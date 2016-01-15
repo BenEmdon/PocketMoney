@@ -11,14 +11,23 @@ import CoreData
 
 class CreateDataUITableViewController: UITableViewController {
     
-    var amountFloat: Float! = nil
-    var positive: Bool = true
-    var date: NSDate!
+    // MARK: Local view variables
+    var positive: Bool = true //
+    var amountFloat: Float! = nil //
+    var iouBool = false
+    var date = NSDate()
+    var shortDescription: String! = nil
     
-    @IBOutlet var AmountTextField: UITextField!
-    
-    
+    // MARK: IBOutlets in the order that they appear
     @IBOutlet var inOutSegmentedController: UISegmentedControl!
+    @IBOutlet var AmountTextField: UITextField!
+    @IBOutlet var iouSwitch: UISwitch!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var descriptionLabel: UITextField!
+    
+    
+    
+    
     @IBAction func inOutSegmentedControllerAction(sender: AnyObject) {
         
         if inOutSegmentedController.selectedSegmentIndex == 0 {
@@ -29,42 +38,46 @@ class CreateDataUITableViewController: UITableViewController {
             inOutSegmentedController.tintColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
             positive = false
         }
-        if inOutSegmentedController.selectedSegmentIndex == 2 {
-            inOutSegmentedController.tintColor = UIColor(red:0.407, green:0.407, blue:0.407, alpha:1)
-            positive = false
-        }
         
     }
     
     
     @IBAction func addButtonDidPress(sender: AnyObject) {
-        var sufficientData: Bool = false
         print("addDataButtonDidPress")
+        
         if AmountTextField.text == "" {
             print("AmountTextField.text = empty")
         }
         else {
             // TODO: date = inputDate.date
-            date = NSDate()
+            // date = NSDate()
             
             print(AmountTextField.text)
+            
+            
+            
             amountFloat = (AmountTextField.text! as NSString).floatValue
-            sufficientData = true
-        }
-        
-        
-        
-        if sufficientData {
+            iouBool = iouSwitch.on
+            shortDescription = descriptionLabel.text
+            
             view.endEditing(true)
-            saveValue(amountFloat, positive: positive)
+            saveValue(amountFloat, positive: positive, iou: iouBool, date: date, shortDescription: shortDescription)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
     
     override func viewDidLoad() {
-        print("viewLoaded")
         super.viewDidLoad()
+        
+        // Format date
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.FullStyle
+        formatter.timeStyle = .ShortStyle
+        let dateString = formatter.stringFromDate(date)
+        dateLabel.text = dateString
+        
+        // Tap anywhere recognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
         self.view.addGestureRecognizer(tap)
     }
@@ -80,10 +93,7 @@ class CreateDataUITableViewController: UITableViewController {
     }
     
     // MARK: Helper Methods
-    func saveValue(amount: Float, positive: Bool) {
-        
-        // temporary NSDate create
-        let date = NSDate()
+    func saveValue(amount: Float, positive: Bool, iou: Bool, date: NSDate, shortDescription: String?) {
         
         // Retrieve the managed object context in app delegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -98,7 +108,12 @@ class CreateDataUITableViewController: UITableViewController {
         let amountString = amountToString(amount)
         value.setValue(amountString, forKey: "amountString")
         value.setValue(positive, forKey: "positive")
+        value.setPrimitiveValue(iouBool, forKey: "iou")
         value.setValue(date, forKey: "transactionDate")
+        value.setValue(shortDescription, forKey: "descriptionString")
+       
+        
+        
         
         
         // Save the managed object in context
