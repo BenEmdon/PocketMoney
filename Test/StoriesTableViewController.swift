@@ -11,9 +11,6 @@ import CoreData
 
 var values = [NSManagedObject]()
 
-func amountToString(value: Float) -> String {
-    return "$" + String(format: "%.2f", value)
-}
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
@@ -77,6 +74,9 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
             if !positive {
                 cell.colorViewDescription.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
             }
+        }
+        else {
+            cell.colorViewDescription.backgroundColor = UIColor.darkGrayColor()
         }
         
         
@@ -149,6 +149,10 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         catch {
             print("Fetch failed: \(error)")
         }
+    }
+    
+    func amountToString(value: Float) -> String {
+        return "$" + String(format: "%.2f", value)
     }
 
     

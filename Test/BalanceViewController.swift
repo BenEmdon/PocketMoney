@@ -26,22 +26,35 @@ class BalanceViewController: UIViewController {
         var balanceString: String!
         var balanceAmount: Float = 0
         var positive: Bool!
+        var iouBool: Bool!
         var amountFloat: Float!
+        
         for value in values {
             positive = value.valueForKey("positive") as! Bool
             amountFloat = value.valueForKey("amount") as! Float
-            
-            if positive == true {
-                balanceAmount += amountFloat
-            }
-            if positive == false {
-                balanceAmount -= amountFloat
+            iouBool = value.valueForKey("iou") as! Bool
+            if !iouBool {
+                if positive == true {
+                    balanceAmount += amountFloat
+                }
+                if positive == false {
+                    balanceAmount -= amountFloat
+                }
             }
         }
         
         balanceString = amountToString(balanceAmount)
         
         return balanceString
+    }
+    
+    func amountToString(value: Float) -> String {
+        if value < 0 {
+            return "-$" + String(format: "%.2f", -value)
+        }
+        else {
+            return "$" + String(format: "%.2f", value)
+        }
     }
     
 }
