@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Charts
 
-class BalanceViewController: UIViewController {
+class BalanceViewController: UIViewController, ChartViewDelegate{
     
     // MARK: - Local class variables
     var dateAxis = [String]()
@@ -22,14 +22,20 @@ class BalanceViewController: UIViewController {
     
     @IBOutlet var balanceDisplayView: DesignableView!
     @IBOutlet var balanceAmountLabel: UILabel!
-    @IBOutlet var analyticChart: BarChartView!
+    @IBOutlet var analyticChart: LineChartView!
     @IBOutlet var viewForChart: DesignableView!
     
     
     // MARK: View did/will functions
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         analyticChart.noDataText = "No data in chart"
+        analyticChart.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        analyticChart.animate(xAxisDuration: 0, yAxisDuration: 1.5, easingOption: .EaseOutCubic)
     }
     
     
@@ -41,6 +47,19 @@ class BalanceViewController: UIViewController {
         viewForChart.animate()
         
         balanceAmountLabel.text = balanceAmountString()
+        analyticChart.descriptionText = ""
+        analyticChart.autoScaleMinMaxEnabled = true
+        analyticChart.backgroundColor = UIColor(red:0.937, green:0.937, blue:0.937, alpha:1)
+        analyticChart.xAxis.labelPosition = .Bottom
+        analyticChart.drawGridBackgroundEnabled = false
+        analyticChart.rightAxis.enabled = false
+        analyticChart.maxVisibleValueCount = 10
+        analyticChart.gridBackgroundColor = UIColor.whiteColor()
+        analyticChart.leftAxis.drawGridLinesEnabled = true
+        analyticChart.xAxis.drawGridLinesEnabled = false
+        analyticChart.drawGridBackgroundEnabled = true
+        analyticChart.pinchZoomEnabled = false
+        analyticChart.doubleTapToZoomEnabled = false
         
         
         dateAxis = [String]()
@@ -65,15 +84,30 @@ class BalanceViewController: UIViewController {
         
         
         if dataIsInitialized {
-            var dataEntries: [BarChartDataEntry] = []
+            var dataEntries: [ChartDataEntry] = []
             
             
             for index in 0..<dates.count {
-                let dataEntry = BarChartDataEntry(value: balances[index], xIndex: index)
+                let dataEntry = ChartDataEntry(value: balances[index], xIndex: index)
                 dataEntries.append(dataEntry)
             }
-            let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
-            let chartData = BarChartData(xVals: dateAxis, dataSet: chartDataSet)
+            let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Balance")
+            chartDataSet.drawCubicEnabled = true
+            chartDataSet.cubicIntensity = 0.2
+            chartDataSet.drawCirclesEnabled = true
+            chartDataSet.setCircleColor(UIColor(red:0.329, green:0.881, blue:0.481, alpha:1))
+            chartDataSet.lineWidth = 1.8
+            chartDataSet.circleRadius = 4.0
+            chartDataSet.fillColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
+            chartDataSet.setColor(UIColor(red:0.329, green:0.881, blue:0.481, alpha:1))
+            chartDataSet.drawVerticalHighlightIndicatorEnabled = false
+            chartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+            chartDataSet.drawFilledEnabled = true
+            chartDataSet.fillAlpha = 1
+            
+            
+            
+            let chartData = LineChartData(xVals: dateAxis, dataSet: chartDataSet)
             analyticChart.data = chartData
         }
     }
@@ -84,6 +118,8 @@ class BalanceViewController: UIViewController {
     // Sets balance and date axis arrays
     func setAxisArrays() {
         var instantaneousBalance: Double = 0.0
+        
+        /*
         var valuesFromLastTen = [NSManagedObject]()
         let transactionCount = values.count
         
@@ -97,10 +133,10 @@ class BalanceViewController: UIViewController {
                 valuesFromLastTen.append(values[index])
             }
         }
-        
+        */
         var date: NSDate
         
-        for value in valuesFromLastTen.reverse() {
+        for value in values.reverse() {
             
             let positive = value.valueForKey("positive") as! Bool
             let amountDouble = Double(value.valueForKey("amount") as! Float)

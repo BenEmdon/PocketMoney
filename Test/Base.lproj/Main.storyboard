@@ -422,7 +422,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.78431373829999995" green="0.78431373829999995" blue="0.78431373829999995" alpha="0.22334428267045456" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="vT2-GU-G1E" secondAttribute="trailing" constant="8" id="1zZ-IL-vhf"/>
                                     <constraint firstAttribute="width" constant="240" id="9Vs-o4-NOB"/>
@@ -450,12 +450,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-hD-DTj" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="368" width="375" height="290"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD" customClass="BarChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="8" y="8" width="359" height="242"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93689811229705811" green="0.93705856800079346" blue="0.93688797950744629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="1w9-vm-mhD" secondAttribute="bottom" constant="40" id="0CH-Q6-XUY"/>
                                     <constraint firstItem="1w9-vm-mhD" firstAttribute="leading" secondItem="kwc-hD-DTj" secondAttribute="leading" constant="8" id="Iqu-Wt-eVW"/>
@@ -487,7 +486,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" image="coin_dollar" id="UqW-l5-U3B"/>
                     <connections>
-                        <outlet property="analyticChart" destination="1w9-vm-mhD" id="9OX-up-ZkR"/>
+                        <outlet property="analyticChart" destination="1w9-vm-mhD" id="805-K1-Aoi"/>
                         <outlet property="balanceAmountLabel" destination="vT2-GU-G1E" id="qjh-YZ-NGK"/>
                         <outlet property="balanceDisplayView" destination="zaJ-Bj-iwU" id="Qco-zF-Lbf"/>
                         <outlet property="viewForChart" destination="kwc-hD-DTj" id="8wC-yT-CNN"/>
