@@ -19,6 +19,8 @@
 		1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */; };
 		1D4A25141C44A2AC0010B4DB /* CreateDataUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */; };
 		1D64BB051C3EEFF60026C984 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */; };
+		1DCDA4CD1C4BFF86009DA1DD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCDA4C81C4BFF70009DA1DD /* Charts.framework */; };
+		1DCDA4CE1C4BFF86009DA1DD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCDA4C81C4BFF70009DA1DD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DD29C631C47F6C400F6ACA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */; };
 		1DD29C641C47F6C400F6ACA9 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */; };
 		1DD29C651C47F6C400F6ACA9 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */; };
@@ -66,7 +68,49 @@
 			remoteGlobalIDString = 1D2B8B1D1C302BA10043DBD1;
 			remoteInfo = Test;
 		};
+		1DCDA4C71C4BFF70009DA1DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		1DCDA4C91C4BFF70009DA1DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		1DCDA4CB1C4BFF70009DA1DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		1DCDA4CF1C4BFF86009DA1DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1DCDA4D11C4BFF87009DA1DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1DCDA4CE1C4BFF86009DA1DD /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D2B8B1E1C302BA10043DBD1 /* PocketMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +131,7 @@
 		1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDataUITableViewController.swift; sourceTree = "<group>"; };
 		1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/ios-charts-master-4/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -125,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCDA4CD1C4BFF86009DA1DD /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +214,7 @@
 		1D2B8B201C302BA10043DBD1 /* PocketMoney */ = {
 			isa = PBXGroup;
 			children = (
+				1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */,
 				1DD29C441C47F6C400F6ACA9 /* Spring */,
 				1D2B8B211C302BA10043DBD1 /* AppDelegate.swift */,
 				1D2B8B951C3056E30043DBD1 /* MenuViewController.swift */,
@@ -204,6 +251,16 @@
 			);
 			name = PocketMoneyUITests;
 			path = TestUITests;
+			sourceTree = "<group>";
+		};
+		1DCDA4C21C4BFF70009DA1DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DCDA4C81C4BFF70009DA1DD /* Charts.framework */,
+				1DCDA4CA1C4BFF70009DA1DD /* Charts.framework */,
+				1DCDA4CC1C4BFF70009DA1DD /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1DD29C441C47F6C400F6ACA9 /* Spring */ = {
@@ -253,10 +310,12 @@
 				1D2B8B1A1C302BA10043DBD1 /* Sources */,
 				1D2B8B1B1C302BA10043DBD1 /* Frameworks */,
 				1D2B8B1C1C302BA10043DBD1 /* Resources */,
+				1DCDA4D11C4BFF87009DA1DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1DCDA4D01C4BFF86009DA1DD /* PBXTargetDependency */,
 			);
 			name = PocketMoney;
 			productName = Test;
@@ -336,6 +395,12 @@
 			mainGroup = 1D2B8B151C302BA10043DBD1;
 			productRefGroup = 1D2B8B1F1C302BA10043DBD1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1DCDA4C21C4BFF70009DA1DD /* Products */;
+					ProjectRef = 1DCDA4B61C4BFF5E009DA1DD /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D2B8B1D1C302BA10043DBD1 /* PocketMoney */,
@@ -344,6 +409,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1DCDA4C81C4BFF70009DA1DD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 1DCDA4C71C4BFF70009DA1DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCDA4CA1C4BFF70009DA1DD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 1DCDA4C91C4BFF70009DA1DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCDA4CC1C4BFF70009DA1DD /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 1DCDA4CB1C4BFF70009DA1DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D2B8B1C1C302BA10043DBD1 /* Resources */ = {
@@ -445,6 +534,11 @@
 			isa = PBXTargetDependency;
 			target = 1D2B8B1D1C302BA10043DBD1 /* PocketMoney */;
 			targetProxy = 1D2B8B411C302BA10043DBD1 /* PBXContainerItemProxy */;
+		};
+		1DCDA4D01C4BFF86009DA1DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 1DCDA4CF1C4BFF86009DA1DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -553,6 +647,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;
@@ -564,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;

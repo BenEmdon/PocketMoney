@@ -447,22 +447,55 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-hD-DTj" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="368" width="375" height="290"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="8" width="359" height="242"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1w9-vm-mhD" secondAttribute="bottom" constant="40" id="0CH-Q6-XUY"/>
+                                    <constraint firstItem="1w9-vm-mhD" firstAttribute="leading" secondItem="kwc-hD-DTj" secondAttribute="leading" constant="8" id="Iqu-Wt-eVW"/>
+                                    <constraint firstItem="1w9-vm-mhD" firstAttribute="top" secondItem="kwc-hD-DTj" secondAttribute="top" constant="8" id="f6Q-PT-Ios"/>
+                                    <constraint firstAttribute="trailing" secondItem="1w9-vm-mhD" secondAttribute="trailing" constant="8" id="kp9-gU-Gwh"/>
+                                    <constraint firstAttribute="height" constant="290" id="rCt-O7-1CA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.44705882670000002" green="0.44705882670000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kwc-hD-DTj" secondAttribute="trailing" id="C87-dz-JMY"/>
                             <constraint firstItem="zaJ-Bj-iwU" firstAttribute="top" secondItem="FR0-8s-LdV" secondAttribute="bottom" constant="60" id="Xqa-le-j8A"/>
+                            <constraint firstItem="l93-sn-XI0" firstAttribute="top" secondItem="kwc-hD-DTj" secondAttribute="bottom" constant="-40" id="eCD-Sf-OsG"/>
+                            <constraint firstItem="kwc-hD-DTj" firstAttribute="leading" secondItem="VD7-t9-dtG" secondAttribute="leading" id="ehd-Jr-llG"/>
                             <constraint firstItem="zaJ-Bj-iwU" firstAttribute="centerX" secondItem="VD7-t9-dtG" secondAttribute="centerX" id="o9w-g1-4d4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" image="coin_dollar" id="UqW-l5-U3B"/>
                     <connections>
+                        <outlet property="analyticChart" destination="1w9-vm-mhD" id="9OX-up-ZkR"/>
                         <outlet property="balanceAmountLabel" destination="vT2-GU-G1E" id="qjh-YZ-NGK"/>
                         <outlet property="balanceDisplayView" destination="zaJ-Bj-iwU" id="Qco-zF-Lbf"/>
+                        <outlet property="viewForChart" destination="kwc-hD-DTj" id="8wC-yT-CNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZL-av-zyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220.5" y="1076.5"/>
+            <point key="canvasLocation" x="-220.5" y="1112.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yu-Bh-tut">
