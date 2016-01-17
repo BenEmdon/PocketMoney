@@ -3,7 +3,7 @@
 //  PocketMoney
 //
 //  Created by Benjamin Emdon on 2016-01-11.
-//  Copyright © 2016 Ben Emdon. All rights reserved.
+//  Copyright © 2016 Ben Emdon.
 //
 
 import UIKit
@@ -11,14 +11,14 @@ import CoreData
 
 class CreateDataUITableViewController: UITableViewController, UITextFieldDelegate {
     
-    // MARK: Local view variables
+    // MARK: - Local class variables
     var positive: Bool = true //
     var amountFloat: Float! = nil //
     var iouBool = false
     var date = NSDate()
     var shortDescription: String! = nil
     
-    // MARK: IBOutlets in the order that they appear
+    // MARK: - IBOutlets in the order that they appear
     @IBOutlet var inOutSegmentedController: UISegmentedControl!
     @IBOutlet var AmountTextField: UITextField!
     @IBOutlet var iouSwitch: UISwitch!
@@ -26,7 +26,7 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet var descriptionLabel: UITextField!
     
     
-    
+    // MARK: - IBActions
     
     @IBAction func inOutSegmentedControllerAction(sender: AnyObject) {
         
@@ -66,6 +66,7 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         }
     }
     
+    // MARK: View did
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,8 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
         self.view.addGestureRecognizer(tap)
     }
+    
+    
     
     func handleTap(recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -121,9 +124,6 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         value.setValue(shortDescription, forKey: "descriptionString")
        
         
-        
-        
-        
         // Save the managed object in context
         do {
             try managedContext.save()
@@ -134,8 +134,6 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         
         // Add the new value to the local data source
         values = [value] + values
-        
-        
         
     }
     

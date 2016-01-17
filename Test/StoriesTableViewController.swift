@@ -16,7 +16,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     var indexToPass = 0
     
-    // MARK: IBActions
+    // MARK: - IBActions
     
     @IBAction func menuButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("MenuSegue", sender: self)
@@ -24,32 +24,24 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     
-    // MARK: Overriden functions
+    // MARK: - View will/did functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // rowHeight overides all
         tableView.rowHeight = 88
         fetchData()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        // Nothing here anymore
-    }
+    
+    // MARK: - Table view
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return values.count
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        indexToPass = indexPath.row
-        performSegueWithIdentifier("InfoSegue", sender: self)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,16 +49,13 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         let value = values[indexPath.row]
         
-        
-        
-        // TODO: let timeCreated: NSDate
-        
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
         cell.timeLabel.text = timeAgoSinceDate(dateObject, numericDates: true)
         let iouBool = value.valueForKey("iou") as! Bool
         let positive = value.valueForKey("positive") as! Bool
         cell.descriptionLabel.text = value.valueForKey("descriptionString") as? String
+        
         if !iouBool {
             if positive {
                 cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
@@ -85,6 +74,12 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        indexToPass = indexPath.row
+        performSegueWithIdentifier("InfoSegue", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -115,6 +110,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "InfoSegue" {
@@ -125,7 +121,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     
-    // MARK: Helper Methods
+    // MARK: - Fetch Data from Core Data
     
     func fetchData() {
         // Get the managed object context
@@ -151,10 +147,15 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
     }
     
+    
+    // MARK: Helper Methods
+    
+    
     func amountToString(value: Float) -> String {
         return "$" + String(format: "%.2f", value)
     }
 
+    // TODO: Reduce timeAgoSinceDate
     
     func timeAgoSinceDate(date:NSDate, numericDates: Bool) -> String {
         let calendar = NSCalendar.currentCalendar()
