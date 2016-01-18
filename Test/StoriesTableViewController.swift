@@ -51,7 +51,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
-        cell.timeLabel.text = timeAgoSinceDate(dateObject, numericDates: true)
+        cell.timeLabel.text = timeAgoSinceDate(dateObject)
         let iouBool = value.valueForKey("iou") as! Bool
         let positive = value.valueForKey("positive") as! Bool
         cell.descriptionLabel.text = value.valueForKey("descriptionString") as? String
@@ -154,68 +154,37 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     func amountToString(value: Float) -> String {
         return "$" + String(format: "%.2f", value)
     }
-
-    // TODO: Reduce timeAgoSinceDate
     
-    func timeAgoSinceDate(date:NSDate, numericDates: Bool) -> String {
+    func timeAgoSinceDate(date:NSDate) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
         let earliest = now.earlierDate(date)
         let latest = (earliest == now) ? date : now
-        let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+        let components: NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
         
-        if (components.year >= 2) {
+        if (components.year >= 1) {
             return "\(components.year)y"
-        } else if (components.year >= 1){
-            if (numericDates){
-                return "1y"
-            } else {
-                return "Last year"
-            }
-        } else if (components.month >= 2) {
+        }
+        else if (components.month >= 1) {
             return "\(components.month)m"
-        } else if (components.month >= 1){
-            if (numericDates){
-                return "1m"
-            } else {
-                return "Last month"
-            }
-        } else if (components.weekOfYear >= 2) {
+        }
+        else if (components.weekOfYear >= 1) {
             return "\(components.weekOfYear)w"
-        } else if (components.weekOfYear >= 1){
-            if (numericDates){
-                return "1w"
-            } else {
-                return "Last week"
-            }
-        } else if (components.day >= 2) {
+        }
+        else if (components.day >= 1) {
             return "\(components.day)d"
-        } else if (components.day >= 1){
-            if (numericDates){
-                return "1d"
-            } else {
-                return "Yesterday"
-            }
-        } else if (components.hour >= 2) {
+        }
+        else if (components.hour >= 1) {
             return "\(components.hour)h"
-        } else if (components.hour >= 1){
-            if (numericDates){
-                return "1h"
-            } else {
-                return "An hour ago"
-            }
-        } else if (components.minute >= 2) {
+        }
+        else if (components.minute >= 1) {
             return "\(components.minute)min"
-        } else if (components.minute >= 1){
-            if (numericDates){
-                return "1min"
-            } else {
-                return "A minute ago"
-            }
-        } else if (components.second >= 3) {
+        }
+        else if (components.second >= 3) {
             return "\(components.second)s"
-        } else {
-            return "<1s"
+        }
+        else {
+            return "now"
         }
     }
     

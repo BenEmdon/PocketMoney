@@ -43,23 +43,29 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
         // View animations
         balanceDisplayView.animation = "slideDown"
         balanceDisplayView.animate()
+        viewForChart.backgroundColor = UIColor.darkGrayColor()
         viewForChart.animation = "slideUp"
         viewForChart.animate()
         
+        // Graph properties
         balanceAmountLabel.text = balanceAmountString()
         analyticChart.descriptionText = ""
         analyticChart.autoScaleMinMaxEnabled = true
-        analyticChart.backgroundColor = UIColor(red:0.937, green:0.937, blue:0.937, alpha:1)
+        analyticChart.backgroundColor = UIColor.darkGrayColor()
         analyticChart.xAxis.labelPosition = .Bottom
         analyticChart.drawGridBackgroundEnabled = false
         analyticChart.rightAxis.enabled = false
         analyticChart.maxVisibleValueCount = 10
-        analyticChart.gridBackgroundColor = UIColor.whiteColor()
+        analyticChart.gridBackgroundColor = UIColor.darkGrayColor()
         analyticChart.leftAxis.drawGridLinesEnabled = true
+        analyticChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        analyticChart.xAxis.labelTextColor = UIColor.whiteColor()
         analyticChart.xAxis.drawGridLinesEnabled = false
         analyticChart.drawGridBackgroundEnabled = true
         analyticChart.pinchZoomEnabled = false
         analyticChart.doubleTapToZoomEnabled = false
+        analyticChart.legend.textColor = UIColor.whiteColor()
+
         
         
         dateAxis = [String]()
@@ -92,6 +98,7 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
                 dataEntries.append(dataEntry)
             }
             let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Balance")
+            // Data properties
             chartDataSet.drawCubicEnabled = true
             chartDataSet.cubicIntensity = 0.2
             chartDataSet.drawCirclesEnabled = true
@@ -103,7 +110,8 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
             chartDataSet.drawVerticalHighlightIndicatorEnabled = false
             chartDataSet.drawHorizontalHighlightIndicatorEnabled = false
             chartDataSet.drawFilledEnabled = true
-            chartDataSet.fillAlpha = 1
+            chartDataSet.valueTextColor = UIColor.whiteColor()
+            //chartDataSet.fillAlpha = 1
             
             
             
@@ -118,23 +126,8 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
     // Sets balance and date axis arrays
     func setAxisArrays() {
         var instantaneousBalance: Double = 0.0
-        
-        /*
-        var valuesFromLastTen = [NSManagedObject]()
-        let transactionCount = values.count
-        
-        if transactionCount >= 10 {
-            for index in 0...9 {
-                valuesFromLastTen.append(values[index])
-            }
-        }
-        else {
-            for index in 0..<transactionCount {
-                valuesFromLastTen.append(values[index])
-            }
-        }
-        */
         var date: NSDate
+    
         
         for value in values.reverse() {
             
@@ -155,15 +148,10 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
             
             date = value.valueForKey("transactionDate") as! NSDate
 
-            dateAxis.append(timeAgoSinceDate(date, numericDates: true))
+            dateAxis.append(timeAgoSinceDate(date))
         }
         
         
-    }
-    
-    // TODO: unused
-    func timeLessThanOrEqual(date1: NSDate, date2: NSDate) -> Bool {
-        return date1.timeIntervalSince1970 <= date2.timeIntervalSince1970
     }
     
     
@@ -205,67 +193,36 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
     }
     
     
-    // TODO: Reduce timeAgoSinceDate
-    
-    func timeAgoSinceDate(date:NSDate, numericDates: Bool) -> String {
+    func timeAgoSinceDate(date:NSDate) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
         let earliest = now.earlierDate(date)
         let latest = (earliest == now) ? date : now
-        let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+        let components: NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
         
-        if (components.year >= 2) {
+        if (components.year >= 1) {
             return "\(components.year)y"
-        } else if (components.year >= 1){
-            if (numericDates){
-                return "1y"
-            } else {
-                return "Last year"
-            }
-        } else if (components.month >= 2) {
+        }
+        else if (components.month >= 1) {
             return "\(components.month)m"
-        } else if (components.month >= 1){
-            if (numericDates){
-                return "1m"
-            } else {
-                return "Last month"
-            }
-        } else if (components.weekOfYear >= 2) {
+        }
+        else if (components.weekOfYear >= 1) {
             return "\(components.weekOfYear)w"
-        } else if (components.weekOfYear >= 1){
-            if (numericDates){
-                return "1w"
-            } else {
-                return "Last week"
-            }
-        } else if (components.day >= 2) {
+        }
+        else if (components.day >= 1) {
             return "\(components.day)d"
-        } else if (components.day >= 1){
-            if (numericDates){
-                return "1d"
-            } else {
-                return "Yesterday"
-            }
-        } else if (components.hour >= 2) {
+        }
+        else if (components.hour >= 1) {
             return "\(components.hour)h"
-        } else if (components.hour >= 1){
-            if (numericDates){
-                return "1h"
-            } else {
-                return "An hour ago"
-            }
-        } else if (components.minute >= 2) {
+        }
+        else if (components.minute >= 1) {
             return "\(components.minute)min"
-        } else if (components.minute >= 1){
-            if (numericDates){
-                return "1min"
-            } else {
-                return "A minute ago"
-            }
-        } else if (components.second >= 3) {
+        }
+        else if (components.second >= 3) {
             return "\(components.second)s"
-        } else {
-            return "<1s"
+        }
+        else {
+            return "now"
         }
     }
 }

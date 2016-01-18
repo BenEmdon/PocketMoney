@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Value-->
@@ -155,7 +156,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tta-nG-ne1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123.5" y="-144.5"/>
+            <point key="canvasLocation" x="2088.5" y="-144.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r4x-dh-G88">
@@ -359,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEN-RZ-HlR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546.5" y="595.5"/>
+            <point key="canvasLocation" x="1546.5" y="615.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2eW-fp-vuP">
@@ -386,7 +387,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szE-tQ-Osp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220.5" y="254.5"/>
+            <point key="canvasLocation" x="-179.5" y="637.5"/>
         </scene>
         <!--Balance-->
         <scene sceneID="isz-gf-SQy">
@@ -401,7 +402,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaJ-Bj-iwU" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
-                                <rect key="frame" x="67" y="80" width="240" height="111"/>
+                                <rect key="frame" x="68" y="80" width="240" height="111"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e93-Ow-NRD">
                                         <rect key="frame" x="8" y="8" width="224" height="32"/>
@@ -454,7 +455,7 @@
                                         <rect key="frame" x="8" y="8" width="359" height="242"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93689811229705811" green="0.93705856800079346" blue="0.93688797950744629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.52094089984893799" green="0.52103406190872192" blue="0.52093499898910522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="1w9-vm-mhD" secondAttribute="bottom" constant="40" id="0CH-Q6-XUY"/>
                                     <constraint firstItem="1w9-vm-mhD" firstAttribute="leading" secondItem="kwc-hD-DTj" secondAttribute="leading" constant="8" id="Iqu-Wt-eVW"/>
@@ -464,7 +465,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.44705882670000002" green="0.44705882670000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="3"/>
@@ -474,10 +475,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0Y-bO-2hN">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="20"/>
+                                <color key="backgroundColor" red="0.32978871464729309" green="0.88163453340530396" blue="0.48171126842498779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="9oq-me-eFj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="d0Y-bO-2hN" firstAttribute="leading" secondItem="VD7-t9-dtG" secondAttribute="leadingMargin" constant="-20" id="0ex-oM-Lrj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d0Y-bO-2hN" secondAttribute="trailing" constant="-20" id="6UQ-IH-H75"/>
                             <constraint firstAttribute="trailing" secondItem="kwc-hD-DTj" secondAttribute="trailing" id="C87-dz-JMY"/>
+                            <constraint firstItem="d0Y-bO-2hN" firstAttribute="top" secondItem="VD7-t9-dtG" secondAttribute="topMargin" id="VyA-nP-8LO"/>
                             <constraint firstItem="zaJ-Bj-iwU" firstAttribute="top" secondItem="FR0-8s-LdV" secondAttribute="bottom" constant="60" id="Xqa-le-j8A"/>
                             <constraint firstItem="l93-sn-XI0" firstAttribute="top" secondItem="kwc-hD-DTj" secondAttribute="bottom" constant="-40" id="eCD-Sf-OsG"/>
                             <constraint firstItem="kwc-hD-DTj" firstAttribute="leading" secondItem="VD7-t9-dtG" secondAttribute="leading" id="ehd-Jr-llG"/>
@@ -494,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZL-av-zyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220.5" y="1112.5"/>
+            <point key="canvasLocation" x="438.5" y="1051.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yu-Bh-tut">
