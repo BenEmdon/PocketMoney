@@ -2,7 +2,7 @@
 
 Pocket Money is a money management app for those who mostly use cash. This app allows the user to record their transactions and records an updated balance. The app is currently under development.
 
-![alt tag](https://raw.githubusercontent.com/BenEmdon/PocketMoney/master/WorkInProcessImage.png)
+![alt tag](https://raw.githubusercontent.com/BenEmdon/PocketMoney/master/WorkInProgressImage.jpg)
 
 ### Features Planned for the Future
   - Details view (still unfinished)
