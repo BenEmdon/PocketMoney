@@ -80,7 +80,6 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
     
     
     func setChart(dates: [String], balances: [Double]) {
-        print(balances[0])
         analyticChart.noDataText = "You need to record some transactions!"
         var dataIsInitialized = false
         

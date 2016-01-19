@@ -71,6 +71,7 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.descriptionLabel.delegate = self;
         
         // Format date
