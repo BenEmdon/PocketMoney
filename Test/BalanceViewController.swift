@@ -24,6 +24,9 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
     @IBOutlet var balanceAmountLabel: UILabel!
     @IBOutlet var analyticChart: LineChartView!
     @IBOutlet var viewForChart: DesignableView!
+    @IBOutlet var iOUDisplayView: DesignableView!
+    @IBOutlet var iOUAmountPositive: UILabel!
+    @IBOutlet var iOUAmountNegative: UILabel!
     
     
     // MARK: View did/will functions
@@ -43,12 +46,20 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
         // View animations
         balanceDisplayView.animation = "slideDown"
         balanceDisplayView.animate()
+        iOUDisplayView.animation = "slideDown"
+        iOUDisplayView.delay = 0.1
+        iOUDisplayView.animate()
         viewForChart.backgroundColor = UIColor.darkGrayColor()
         viewForChart.animation = "slideUp"
         viewForChart.animate()
         
+        
+        balanceAmountLabel.text = balanceAmountString(false, iOUisPositive: false)
+        iOUAmountPositive.text = balanceAmountString(true, iOUisPositive: true)
+        iOUAmountNegative.text = balanceAmountString(true, iOUisPositive: false)
+        
+        
         // Graph properties
-        balanceAmountLabel.text = balanceAmountString()
         analyticChart.descriptionText = ""
         analyticChart.autoScaleMinMaxEnabled = true
         analyticChart.backgroundColor = UIColor.darkGrayColor()
@@ -72,8 +83,6 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
         balanceAxis = [Double]()
         
         setAxisArrays()
-        print(dateAxis)
-        print(balanceAxis)
         setChart(dateAxis, balances: balanceAxis)
         
     }
@@ -155,7 +164,7 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
     
     
     // Gets balance amount 
-    func balanceAmountString() -> String {
+    func balanceAmountString(isIOU: Bool, iOUisPositive: Bool) -> String {
         var balanceString: String!
         var balanceAmount: Float = 0
         var positive: Bool!
@@ -167,12 +176,24 @@ class BalanceViewController: UIViewController, ChartViewDelegate{
             amountFloat = value.valueForKey("amount") as! Float
             iouBool = value.valueForKey("iou") as! Bool
             
-            if !iouBool {
+            if !iouBool && !isIOU{
                 if positive == true {
                     balanceAmount += amountFloat
                 }
                 if positive == false {
                     balanceAmount -= amountFloat
+                }
+            }
+            if iouBool! && isIOU {
+                if iOUisPositive {
+                    if positive == true {
+                        balanceAmount += amountFloat
+                    }
+                }
+                else {
+                    if positive == false {
+                        balanceAmount += amountFloat
+                    }
                 }
             }
         }
