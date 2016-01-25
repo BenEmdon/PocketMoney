@@ -13,7 +13,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xQt-T0-6Ha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Enter Amount" id="QXS-lv-adt">
                                 <cells>
@@ -77,7 +77,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwz-Ab-3ro">
                                                     <rect key="frame" x="15" y="11" width="30" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -558,7 +558,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-hD-DTj" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="368" width="375" height="290"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD" customClass="LineChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD">
                                         <rect key="frame" x="8" y="8" width="359" height="242"/>
                                     </view>
                                 </subviews>
@@ -606,7 +606,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" image="coin_dollar" id="UqW-l5-U3B"/>
                     <connections>
-                        <outlet property="analyticChart" destination="1w9-vm-mhD" id="805-K1-Aoi"/>
                         <outlet property="balanceAmountLabel" destination="vT2-GU-G1E" id="qjh-YZ-NGK"/>
                         <outlet property="balanceDisplayView" destination="zaJ-Bj-iwU" id="Qco-zF-Lbf"/>
                         <outlet property="iOUAmountNegative" destination="Rn9-3M-F21" id="AHL-gY-fHd"/>
@@ -617,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZL-av-zyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438.5" y="1051.5"/>
+            <point key="canvasLocation" x="384.5" y="1063.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yu-Bh-tut">
