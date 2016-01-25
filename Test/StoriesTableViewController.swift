@@ -66,6 +66,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
         else {
             cell.colorViewDescription.backgroundColor = UIColor.darkGrayColor()
+            cell.iOUShower.hidden = false
+            if positive {
+                cell.iOUShower.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
+            }
+            if !positive {
+                cell.iOUShower.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
+            }
+            
         }
         
         
