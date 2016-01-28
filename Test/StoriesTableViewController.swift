@@ -49,7 +49,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
         let value = values[indexPath.row]
         
-        cell.iOUShower.hidden = false
+        cell.iOUShower.hidden = true
         
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
