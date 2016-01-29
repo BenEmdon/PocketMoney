@@ -386,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEN-RZ-HlR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546.5" y="615.5"/>
+            <point key="canvasLocation" x="1546.5" y="605.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2eW-fp-vuP">
@@ -558,7 +558,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-hD-DTj" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="368" width="375" height="290"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-vm-mhD" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="8" y="8" width="359" height="242"/>
                                     </view>
                                 </subviews>
@@ -606,6 +606,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" image="coin_dollar" id="UqW-l5-U3B"/>
                     <connections>
+                        <outlet property="analyticChart" destination="1w9-vm-mhD" id="suj-WF-eeZ"/>
                         <outlet property="balanceAmountLabel" destination="vT2-GU-G1E" id="qjh-YZ-NGK"/>
                         <outlet property="balanceDisplayView" destination="zaJ-Bj-iwU" id="Qco-zF-Lbf"/>
                         <outlet property="iOUAmountNegative" destination="Rn9-3M-F21" id="AHL-gY-fHd"/>

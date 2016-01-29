@@ -8,14 +8,9 @@
 
 import UIKit
 import CoreData
-//import Charts
+import Charts
 
-// =========================== READ THIS ==========================
-// The iOS Charts framework is not working due to a recent compiler issue.
-// The chart functionality has been unimplemented.
-// Follow this exchange for more details: http://stackoverflow.com/questions/33274676/clang-error-linker-command-failed-with-exit-code-1-xcode-linker-error
-
-class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
+class BalanceViewController: UIViewController, ChartViewDelegate{
     
     // MARK: - Local class variables
     var dateAxis = [String]()
@@ -27,7 +22,7 @@ class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
     
     @IBOutlet var balanceDisplayView: DesignableView!
     @IBOutlet var balanceAmountLabel: UILabel!
-    //@IBOutlet var analyticChart: LineChartView!
+    @IBOutlet var analyticChart: LineChartView!
     @IBOutlet var viewForChart: DesignableView!
     @IBOutlet var iOUDisplayView: DesignableView!
     @IBOutlet var iOUAmountPositive: UILabel!
@@ -38,12 +33,12 @@ class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //analyticChart.noDataText = "No data in chart"
-        //analyticChart.delegate = self
+        analyticChart.noDataText = "No data in chart"
+        analyticChart.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
-        //analyticChart.animate(xAxisDuration: 0, yAxisDuration: 1.5, easingOption: .EaseOutCubic)
+        analyticChart.animate(xAxisDuration: 0, yAxisDuration: 1.5, easingOption: .EaseOutCubic)
     }
     
     
@@ -65,7 +60,7 @@ class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
         
         
         // Graph properties
-        /*
+        
         analyticChart.descriptionText = ""
         analyticChart.autoScaleMinMaxEnabled = true
         analyticChart.backgroundColor = UIColor.darkGrayColor()
@@ -90,11 +85,10 @@ class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
         
         setAxisArrays()
         setChart(dateAxis, balances: balanceAxis)
-        */
+        
         
     }
     
-    /*
     func setChart(dates: [String], balances: [Double]) {
         analyticChart.noDataText = "You need to record some transactions!"
         var dataIsInitialized = false
@@ -168,7 +162,7 @@ class BalanceViewController: UIViewController/*, ChartViewDelegate*/{
         
         
     }
-    */
+    
     
     // Gets balance amount 
     func balanceAmountString(isIOU: Bool, iOUisPositive: Bool) -> String {
