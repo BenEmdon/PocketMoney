@@ -8,6 +8,8 @@
 
 import UIKit
 
+var indexTEST = 0
+
 class DetailsViewController: UIViewController {
 
     @IBOutlet var tempLabel: UILabel!
@@ -20,7 +22,7 @@ class DetailsViewController: UIViewController {
         setTabBarVisible(false, animated: true)
         
         tempLabel.text = values[indexPassedBySegue].valueForKey("amountString") as? String
-
+        indexTEST = indexPassedBySegue
         // Do any additional setup after loading the view.
     }
 

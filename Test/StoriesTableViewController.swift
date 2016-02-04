@@ -141,7 +141,8 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         // Create a fetch request into Core Data
         let fetchRequest = NSFetchRequest(entityName: "Value")
         // Max batch size, for demo purposes
-        fetchRequest.fetchBatchSize = 100
+        // TODO: DataLeak
+        //fetchRequest.fetchBatchSize = 100
         
         // Sort by transaction date
         let sectionSortDescriptor = NSSortDescriptor(key: "transactionDate", ascending: false)

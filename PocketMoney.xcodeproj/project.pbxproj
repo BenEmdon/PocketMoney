@@ -19,6 +19,7 @@
 		1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */; };
 		1D4A25141C44A2AC0010B4DB /* CreateDataUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */; };
 		1D64BB051C3EEFF60026C984 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */; };
+		1DC353741C63084E00C440D5 /* DetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC353731C63084E00C440D5 /* DetailsTableView.swift */; };
 		1DD29C631C47F6C400F6ACA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */; };
 		1DD29C641C47F6C400F6ACA9 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */; };
 		1DD29C651C47F6C400F6ACA9 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */; };
@@ -101,6 +102,7 @@
 		1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDataUITableViewController.swift; sourceTree = "<group>"; };
 		1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1DC353731C63084E00C440D5 /* DetailsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableView.swift; sourceTree = "<group>"; };
 		1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */,
 				1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */,
 				1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */,
+				1DC353731C63084E00C440D5 /* DetailsTableView.swift */,
 				1DD29C801C481CC500F6ACA9 /* BalanceViewController.swift */,
 				1D2B8B251C302BA10043DBD1 /* Main.storyboard */,
 				1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */,
@@ -486,6 +489,7 @@
 				1DD29C741C47F6C400F6ACA9 /* SoundPlayer.swift in Sources */,
 				1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */,
 				1DD29C661C47F6C400F6ACA9 /* BlurView.swift in Sources */,
+				1DC353741C63084E00C440D5 /* DetailsTableView.swift in Sources */,
 				1DD29C701C47F6C400F6ACA9 /* KeyboardLayoutConstraint.swift in Sources */,
 				1DD29C761C47F6C400F6ACA9 /* SpringAnimation.swift in Sources */,
 				1DD29C731C47F6C400F6ACA9 /* Misc.swift in Sources */,
@@ -650,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;
 				PRODUCT_NAME = PocketMoney;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -665,6 +670,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.Test;
 				PRODUCT_NAME = PocketMoney;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
