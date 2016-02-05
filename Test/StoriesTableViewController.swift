@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 var values = [NSManagedObject]()
+var indexSelected = 0
 
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
-    var indexToPass = 0
     
     // MARK: - IBActions
     
@@ -88,7 +88,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        indexToPass = indexPath.row
+        indexSelected = indexPath.row
         performSegueWithIdentifier("InfoSegue", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -121,15 +121,16 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     
     // MARK: - Navigation
+    /*
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "InfoSegue" {
             if let destinationVC = segue.destinationViewController as? DetailsViewController {
-                destinationVC.indexPassedBySegue = indexToPass
+                destinationVC.indexPassedBySegue = indexSelected
             }
         }
     }
-    
+    */
     
     // MARK: - Fetch Data from Core Data
     
