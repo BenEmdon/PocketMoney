@@ -8,21 +8,16 @@
 
 import UIKit
 
-var indexTEST = 0
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet var tempLabel: UILabel!
     
-    var indexPassedBySegue = 0
+    var indexPassedBySegue = indexSelected
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTabBarVisible(false, animated: true)
-        
-        tempLabel.text = values[indexPassedBySegue].valueForKey("amountString") as? String
-        indexTEST = indexPassedBySegue
         // Do any additional setup after loading the view.
     }
 

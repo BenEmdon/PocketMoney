@@ -11,12 +11,12 @@ import UIKit
 class DetailsTableView: UITableViewController {
     
     
-    @IBOutlet var detailsHere: UILabel!
+    @IBOutlet var amountStringLabel: UILabel!
     
-    override func viewDidAppear(animated: Bool) {
-        detailsHere.text = values[indexTEST].valueForKey("amountString") as? String
-        print(indexTEST)
-        print(values[indexTEST].valueForKey("amountString") as? String)
+    override func viewWillAppear(animated: Bool) {
+        amountStringLabel.text = values[indexSelected].valueForKey("amountString") as? String
+        print(indexSelected)
+        print(values[indexSelected].valueForKey("amountString") as? String)
     }
     
     
