@@ -15,18 +15,39 @@ var indexSelected = 0
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
+    // MARK: Class variables
+    
+    var showiOU = Bool()
+    
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var iOUSegmentedController: UISegmentedControl!
+    
+    @IBAction func iOUSegmentedControllerAction(sender: AnyObject) {
+        if iOUSegmentedController.selectedSegmentIndex == 0 {
+            showiOU = false
+        }
+        if iOUSegmentedController.selectedSegmentIndex == 1 {
+            showiOU = true
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    
     
     // MARK: - View will/did functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // rowHeight overides all
-        tableView.rowHeight = 88
+        //tableView.rowHeight = 88
         fetchData()
-        let img = UIImage(named: "StoryViewBackground")
-        self.view.backgroundColor = UIColor(patternImage: img!)
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "StoryViewBackground.pdf"))
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
+    
+
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
@@ -38,6 +59,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return values.count
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -51,27 +73,40 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
         cell.timeLabel.text = timeAgoSinceDate(dateObject)
-        let iouBool = value.valueForKey("iou") as! Bool
+        cell.iOU = value.valueForKey("iou") as! Bool
         let positive = value.valueForKey("positive") as! Bool
         cell.descriptionLabel.text = value.valueForKey("descriptionString") as? String
         
-        if !iouBool {
-            if positive {
-                cell.colorViewDescription.backgroundColor = UIColor(red:0.309, green:0.831, blue:0.453, alpha:0.9)
-        
-            }
-            if !positive {
-                cell.colorViewDescription.backgroundColor = UIColor(red:1, green:0.38, blue:0.368, alpha:0.9)
-            }
+        if positive {
+            cell.colorViewDescription.backgroundColor = UIColor(red:0.309, green:0.831, blue:0.453, alpha:0.9)
+            
         }
-        else {
-            cell.colorViewDescription.backgroundColor = UIColor(red:0.372, green:0.968, blue:1, alpha:0.9)
+        if !positive {
+            cell.colorViewDescription.backgroundColor = UIColor(red:1, green:0.38, blue:0.368, alpha:0.9)
+        }
+        
+        if cell.iOU == !showiOU {
+            cell.hidden = true
         }
         
         
         cell.delegate = self
         return cell
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var rowHeight: CGFloat = 88.0
+        let iOU = values[indexPath.row].valueForKey("iou") as! Bool
+        if iOU == !showiOU {
+            rowHeight = 0
+            return rowHeight
+        }
+        else {
+            return rowHeight
+        }
+    }
+    
+    
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -151,6 +186,19 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
     }
     
+    /*
+    func divideData(valuesFetched: [NSManagedObject]) {
+        for dataObject in valuesFetched {
+            let divideRight = dataObject.valueForKey("iou") as! Bool
+            if divideRight {
+                iOUs.append(dataObject)
+            }
+            else {
+                insAndOuts.append(dataObject)
+            }
+        }
+    }
+    */
     
     // MARK: Helper Methods
     

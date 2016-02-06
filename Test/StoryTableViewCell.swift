@@ -18,5 +18,5 @@ class StoryTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     weak var delegate: StoryTableViewCellDelegate?
-    
+    var iOU: Bool!
 }
