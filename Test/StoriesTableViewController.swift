@@ -16,14 +16,6 @@ var indexSelected = 0
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
     
     
-    // MARK: - IBActions
-    
-    @IBAction func menuButtonDidPress(sender: AnyObject) {
-        performSegueWithIdentifier("MenuSegue", sender: self)
-        print(values)
-    }
-    
-    
     // MARK: - View will/did functions
     
     override func viewDidLoad() {
@@ -31,6 +23,9 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         // rowHeight overides all
         tableView.rowHeight = 88
         fetchData()
+        let img = UIImage(named: "StoryViewBackground")
+        self.view.backgroundColor = UIColor(patternImage: img!)
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,9 +42,11 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DataCell", forIndexPath: indexPath) as! StoryTableViewCell
+        
+        cell.backgroundColor = UIColor.clearColor()
+        
         let value = values[indexPath.row]
         
-        cell.iOUShower.hidden = true
         
         cell.amountLabel.text = value.valueForKey("amountString") as? String
         let dateObject = value.valueForKey("transactionDate") as! NSDate
@@ -60,22 +57,15 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         
         if !iouBool {
             if positive {
-                cell.colorViewDescription.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
+                cell.colorViewDescription.backgroundColor = UIColor(red:0.309, green:0.831, blue:0.453, alpha:0.9)
+        
             }
             if !positive {
-                cell.colorViewDescription.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
+                cell.colorViewDescription.backgroundColor = UIColor(red:1, green:0.38, blue:0.368, alpha:0.9)
             }
         }
         else {
-            cell.colorViewDescription.backgroundColor = UIColor.darkGrayColor()
-            cell.iOUShower.hidden = false
-            if positive {
-                cell.iOUShower.backgroundColor = UIColor(red:0.329, green:0.881, blue:0.481, alpha:1)
-            }
-            if !positive {
-                cell.iOUShower.backgroundColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
-            }
-            
+            cell.colorViewDescription.backgroundColor = UIColor(red:0.372, green:0.968, blue:1, alpha:0.9)
         }
         
         
@@ -95,6 +85,21 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action, indexPath) in
+            self.tableView.dataSource?.tableView?(
+                self.tableView,
+                commitEditingStyle: .Delete,
+                forRowAtIndexPath: indexPath
+            )
+            return
+        })
+        
+        deleteButton.backgroundColor = UIColor(red:0.831, green:0.421, blue:0.421, alpha:1)
+        
+        return [deleteButton]
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -118,19 +123,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-    
-    
-    // MARK: - Navigation
-    /*
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "InfoSegue" {
-            if let destinationVC = segue.destinationViewController as? DetailsViewController {
-                destinationVC.indexPassedBySegue = indexSelected
-            }
-        }
-    }
-    */
     
     // MARK: - Fetch Data from Core Data
     
