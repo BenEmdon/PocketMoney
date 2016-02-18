@@ -62,16 +62,22 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
             // TODO: date = inputDate.date
             // date = NSDate()
             
-            print(AmountTextField.text)
+            print(indexSelected)
             
-            
+            print(date)
             
             amountFloat = (AmountTextField.text! as NSString).floatValue
             iouBool = iouSwitch.on
             shortDescription = descriptionLabel.text
             
             view.endEditing(true)
-            saveValue(amountFloat, positive: positive, iou: iouBool, date: date, shortDescription: shortDescription)
+            if indexSelected == -1 {
+                addValue(amountFloat, positive: positive, iou: iouBool, date: date, shortDescription: shortDescription)
+            }
+            else {
+                saveValue(amountFloat, positive: positive, iou: iouBool, date: (values[indexSelected].valueForKey("transactionDate") as? NSDate)!, shortDescription: shortDescription)
+            }
+
             
             // Sends notifcation for tableview to reload
             NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
@@ -112,10 +118,9 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         self.descriptionLabel.delegate = self;
         
         // Format date
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(date)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yy hh:mm"
+        let dateString = dateFormatter.stringFromDate(date)
         dateLabel.text = dateString
         
         // Tap anywhere recognizer
@@ -140,7 +145,7 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
 
     
     // MARK: Helper Methods
-    func saveValue(amount: Float, positive: Bool, iou: Bool, date: NSDate, shortDescription: String?) {
+    func addValue(amount: Float, positive: Bool, iou: Bool, date: NSDate, shortDescription: String?) {
         
         // Retrieve the managed object context in app delegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -169,13 +174,19 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         }
         
         // Add the new value to the local data source
-        if indexSelected == -1 {
-            values = [value] + values
-        }
-        else { 
-            values[indexSelected] = value
-        }
+        values = [value] + values
         
+    }
+    
+    
+    func saveValue(amount: Float, positive: Bool, iou: Bool, date: NSDate, shortDescription: String?) {
+        values[indexSelected].setValue(amount, forKey: "amount")
+        let amountString = amountToString(amount)
+        values[indexSelected].setValue(amountString, forKey: "amountString")
+        values[indexSelected].setValue(positive, forKey: "positive")
+        values[indexSelected].setPrimitiveValue(iouBool, forKey: "iou")
+        values[indexSelected].setValue(date, forKey: "transactionDate")
+        values[indexSelected].setValue(shortDescription, forKey: "descriptionString")
     }
     
     func amountToString(value: Float) -> String {
