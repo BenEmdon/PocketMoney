@@ -42,6 +42,8 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
     }
     
     
+    
+    
     @IBAction func addButtonDidPress(sender: AnyObject) {
         print("addDataButtonDidPress")
         
@@ -68,8 +70,32 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
     
     // MARK: View did
     
+    override func viewWillAppear(animated: Bool) {
+        if indexSelected != -1 {
+            if (values[indexSelected].valueForKey("positive") as! Bool) {
+                inOutSegmentedController.selectedSegmentIndex = 0
+            }
+            else {
+                inOutSegmentedController.selectedSegmentIndex = 1
+                inOutSegmentedController.tintColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
+            }
+            
+            AmountTextField.text = String(values[indexSelected].valueForKey("amount") as! Float)
+            
+            if (values[indexSelected].valueForKey("iou") as! Bool) {
+                iouSwitch.on = true
+            }
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/mm/yy hh:mm"
+            
+            dateLabel.text = dateFormatter.stringFromDate((values[indexSelected].valueForKey("transactionDate") as? NSDate)!)
+            descriptionLabel.text = values[indexSelected].valueForKey("descriptionString") as? String
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.layer.cornerRadius = 8;
         
         
         self.descriptionLabel.delegate = self;
@@ -134,7 +160,12 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         }
         
         // Add the new value to the local data source
-        values = [value] + values
+        if indexSelected == -1 {
+            values = [value] + values
+        }
+        else { 
+            values[indexSelected] = value
+        }
         
     }
     
