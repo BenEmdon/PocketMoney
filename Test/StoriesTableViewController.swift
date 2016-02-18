@@ -33,6 +33,10 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         self.tableView.reloadData()
     }
     
+    @IBAction func addButtonDidPress(sender: AnyObject) {
+        indexSelected = -1
+        performSegueWithIdentifier("DetailsSegue", sender: self)
+    }
     
     
     
@@ -114,8 +118,9 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         indexSelected = indexPath.row
-        performSegueWithIdentifier("InfoSegue", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("DetailsSegue", sender: self)
+        
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -186,19 +191,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
     }
     
-    /*
-    func divideData(valuesFetched: [NSManagedObject]) {
-        for dataObject in valuesFetched {
-            let divideRight = dataObject.valueForKey("iou") as! Bool
-            if divideRight {
-                iOUs.append(dataObject)
-            }
-            else {
-                insAndOuts.append(dataObject)
-            }
-        }
-    }
-    */
     
     // MARK: Helper Methods
     

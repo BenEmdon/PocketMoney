@@ -339,7 +339,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="iOUSegmentedController" destination="P6H-t9-ZeZ" id="pf3-M7-xL9"/>
-                        <segue destination="Gpm-yU-2sU" kind="presentation" identifier="DetailsSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cIM-mh-vZ9"/>
+                        <segue destination="Gpm-yU-2sU" kind="presentation" identifier="DetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cIM-mh-vZ9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6t-ig-JMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
