@@ -144,66 +144,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Temporary (Testing)" id="Wn3-bY-7bT">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="95" id="JNV-Oe-jXK">
-                                        <rect key="frame" x="0.0" y="379" width="295" height="95"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JNV-Oe-jXK" id="zxA-Me-9Zn">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="94"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hZ-pd-wwR" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="25" width="44" height="44"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx9-Rx-IBZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                            <state key="normal" image="Fill 22"/>
-                                                            <connections>
-                                                                <action selector="addButtonDidPress:" destination="Byg-Mw-0Mb" eventType="touchUpInside" id="YTs-h7-3jn"/>
-                                                                <action selector="confirmButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="v74-Ue-wwA"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.2470588235" green="0.81960784310000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="C1V-SU-Tfk"/>
-                                                        <constraint firstAttribute="height" constant="44" id="WIy-Hk-WFH"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r46-ps-2tg" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
-                                                    <rect key="frame" x="60" y="25" width="44" height="44"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvO-aF-SUh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                            <state key="normal" image="Fill 23"/>
-                                                            <connections>
-                                                                <action selector="cancelButtonDidPress:" destination="Byg-Mw-0Mb" eventType="touchUpInside" id="B0J-Mx-bg6"/>
-                                                                <action selector="cancelButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="ogQ-tk-bcs"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.83529412749999998" green="0.27450981740000002" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="ISO-51-ZEd"/>
-                                                        <constraint firstAttribute="width" constant="44" id="lnQ-PS-G6T"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Byg-Mw-0Mb" id="1P8-Mk-2KW"/>
@@ -220,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tta-nG-ne1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954.5" y="186.5"/>
+            <point key="canvasLocation" x="1929.5" y="268.5"/>
         </scene>
         <!--Stories Table View Controller-->
         <scene sceneID="ycF-3x-uno">
@@ -339,7 +279,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="iOUSegmentedController" destination="P6H-t9-ZeZ" id="pf3-M7-xL9"/>
-                        <segue destination="Gpm-yU-2sU" kind="presentation" identifier="DetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cIM-mh-vZ9"/>
+                        <segue destination="Gpm-yU-2sU" kind="presentation" identifier="DetailsSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cIM-mh-vZ9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6t-ig-JMC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,8 +12,10 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("cancelData", object: nil)
     }
     @IBAction func confirmButtonDidPress(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("addData", object: nil)
     }
     
     override func viewDidLoad() {

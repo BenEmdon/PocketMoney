@@ -41,10 +41,18 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         
     }
     
+    // MARK: Cancel data
+    func addDataCanceled(notification: NSNotification) {
+        descriptionLabel.resignFirstResponder()
+        view.endEditing(true)
+        
+        // Sends notifcation for tableview to reload
+        NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
-    
-    
-    @IBAction func addButtonDidPress(sender: AnyObject) {
+    // MARK: Add Data
+    func addDataConfirmed(notification: NSNotification) {
         print("addDataButtonDidPress")
         
         if AmountTextField.text == "" {
@@ -64,6 +72,9 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
             
             view.endEditing(true)
             saveValue(amountFloat, positive: positive, iou: iouBool, date: date, shortDescription: shortDescription)
+            
+            // Sends notifcation for tableview to reload
+            NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -110,6 +121,9 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         // Tap anywhere recognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
         self.view.addGestureRecognizer(tap)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addDataConfirmed:", name: "addData", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addDataCanceled:", name: "cancelData", object: nil)
     }
     
     
@@ -123,12 +137,7 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         return false
     }
     
-    // MARK: Cancel create data
-    @IBAction func cancelButtonDidPress(sender: AnyObject) {
-        descriptionLabel.resignFirstResponder()
-        view.endEditing(true)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+
     
     // MARK: Helper Methods
     func saveValue(amount: Float, positive: Bool, iou: Bool, date: NSDate, shortDescription: String?) {

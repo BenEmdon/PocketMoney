@@ -45,8 +45,12 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // rowHeight overides all
-        //tableView.rowHeight = 88
+        //btableView.rowHeight = 88
         fetchData()
+        
+        // Listens for if tableview needs to reload
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableData:", name: "reload", object: nil)
+        
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "StoryViewBackground.pdf"))
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
@@ -193,6 +197,10 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     
     // MARK: Helper Methods
+    
+    func reloadTableData(notification: NSNotification) {
+        tableView.reloadData()
+    }
     
     
     func amountToString(value: Float) -> String {
