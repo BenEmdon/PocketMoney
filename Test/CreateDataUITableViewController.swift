@@ -91,10 +91,12 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         if indexSelected != -1 {
             if (values[indexSelected].valueForKey("positive") as! Bool) {
                 inOutSegmentedController.selectedSegmentIndex = 0
+                positive = true
             }
             else {
                 inOutSegmentedController.selectedSegmentIndex = 1
                 inOutSegmentedController.tintColor = UIColor(red:0.875, green:0.365, blue:0.356, alpha:1)
+                positive = false
             }
             
             AmountTextField.text = String(values[indexSelected].valueForKey("amount") as! Float)
