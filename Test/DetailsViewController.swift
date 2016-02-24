@@ -10,7 +10,7 @@ import UIKit
 
 
 class DetailsViewController: UIViewController {
-
+    
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("cancelData", object: nil)
     }
@@ -19,9 +19,7 @@ class DetailsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

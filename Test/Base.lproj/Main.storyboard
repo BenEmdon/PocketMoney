@@ -23,7 +23,7 @@
             <objects>
                 <tableViewController id="Byg-Mw-0Mb" customClass="CreateDataUITableViewController" customModule="PocketMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xQt-T0-6Ha">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="427"/>
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="417"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -304,8 +304,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugp-Ag-GRv" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="517" width="148" height="44"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J33-TB-8dW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="44"/>
+                                                    <state key="normal" title="Cancel">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cancelButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="k7K-x5-7fZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.84410148859024048" green="0.26879087090492249" blue="0.27104121446609497" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Bvc-eu-f8W"/>
+                                                <constraint firstAttribute="width" constant="148" id="jbk-ah-oe2"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-Hf-OXK">
-                                            <rect key="frame" x="40" y="120" width="295" height="427"/>
+                                            <rect key="frame" x="40" y="100" width="295" height="417"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="295" id="ACT-LU-Ryj"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="10"/>
@@ -315,51 +342,23 @@
                                                 <segue destination="Byg-Mw-0Mb" kind="embed" id="t9b-zL-0iB"/>
                                             </connections>
                                         </containerView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugp-Ag-GRv" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
-                                            <rect key="frame" x="291" y="547" width="44" height="44"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWh-f9-XWR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <state key="normal" image="Fill 23"/>
-                                                    <connections>
-                                                        <action selector="cancelButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="Ycy-w5-HYN"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.83529412749999998" green="0.27450981740000002" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="0bo-3O-Agz"/>
-                                                <constraint firstAttribute="bottom" secondItem="rWh-f9-XWR" secondAttribute="bottom" id="Uvc-ah-KiH"/>
-                                                <constraint firstItem="rWh-f9-XWR" firstAttribute="top" secondItem="Ugp-Ag-GRv" secondAttribute="top" id="Vmf-jI-hdo"/>
-                                                <constraint firstAttribute="height" constant="44" id="pMR-yS-aah"/>
-                                                <constraint firstItem="rWh-f9-XWR" firstAttribute="leading" secondItem="Ugp-Ag-GRv" secondAttribute="leading" id="x8H-pM-gV6"/>
-                                                <constraint firstAttribute="trailing" secondItem="rWh-f9-XWR" secondAttribute="trailing" id="zZk-0S-o77"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjW-jT-hWJ" customClass="DesignableView" customModule="PocketMoney" customModuleProvider="target">
-                                            <rect key="frame" x="247" y="547" width="44" height="44"/>
+                                            <rect key="frame" x="187" y="517" width="148" height="44"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U6-WJ-2BR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <state key="normal" image="Fill 22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgm-of-HRk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="44"/>
+                                                    <state key="normal" title="Confirm">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="confirmButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="r9i-LP-sZR"/>
+                                                        <action selector="confirmButtonDidPress:" destination="Gpm-yU-2sU" eventType="touchUpInside" id="3MP-Ow-BWd"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.2470588235" green="0.81960784310000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.20805290341377258" green="0.82658344507217407" blue="0.33997601270675659" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="3U6-WJ-2BR" firstAttribute="top" secondItem="KjW-jT-hWJ" secondAttribute="top" id="R3l-80-WJK"/>
-                                                <constraint firstAttribute="width" constant="44" id="TLc-sn-ycm"/>
-                                                <constraint firstAttribute="height" constant="44" id="odj-0i-ddy"/>
-                                                <constraint firstAttribute="bottom" secondItem="3U6-WJ-2BR" secondAttribute="bottom" id="rzZ-WW-8ik"/>
-                                                <constraint firstAttribute="trailing" secondItem="3U6-WJ-2BR" secondAttribute="trailing" id="tQn-zb-SRt"/>
-                                                <constraint firstItem="3U6-WJ-2BR" firstAttribute="leading" secondItem="KjW-jT-hWJ" secondAttribute="leading" id="wIA-Rz-LFi"/>
+                                                <constraint firstAttribute="width" constant="148" id="hfl-Cl-eUo"/>
+                                                <constraint firstAttribute="height" constant="44" id="ujq-Gy-sif"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -369,14 +368,13 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Ugp-Ag-GRv" firstAttribute="top" secondItem="NDc-Hf-OXK" secondAttribute="bottom" id="I77-hi-Yel"/>
-                                        <constraint firstItem="KjW-jT-hWJ" firstAttribute="top" secondItem="NDc-Hf-OXK" secondAttribute="bottom" id="IS6-e9-UHA"/>
-                                        <constraint firstAttribute="trailing" secondItem="NDc-Hf-OXK" secondAttribute="trailing" constant="40" id="L0T-x2-ouo"/>
-                                        <constraint firstItem="Ugp-Ag-GRv" firstAttribute="leading" secondItem="KjW-jT-hWJ" secondAttribute="trailing" id="LGn-rC-Jhu"/>
-                                        <constraint firstItem="NDc-Hf-OXK" firstAttribute="top" secondItem="uoO-pB-JAu" secondAttribute="top" constant="120" id="RGD-qK-9qt"/>
-                                        <constraint firstAttribute="trailing" secondItem="Ugp-Ag-GRv" secondAttribute="trailing" constant="40" id="VUT-yv-FfI"/>
-                                        <constraint firstAttribute="bottom" secondItem="NDc-Hf-OXK" secondAttribute="bottom" constant="120" id="dVF-CS-Vlq"/>
-                                        <constraint firstItem="NDc-Hf-OXK" firstAttribute="leading" secondItem="uoO-pB-JAu" secondAttribute="leading" constant="40" id="gIR-42-GCY"/>
+                                        <constraint firstItem="KjW-jT-hWJ" firstAttribute="leading" secondItem="NDc-Hf-OXK" secondAttribute="trailing" constant="-148" id="9Pu-JX-Pyp"/>
+                                        <constraint firstItem="KjW-jT-hWJ" firstAttribute="top" secondItem="NDc-Hf-OXK" secondAttribute="bottom" id="Cus-2E-uqS"/>
+                                        <constraint firstItem="NDc-Hf-OXK" firstAttribute="centerX" secondItem="uoO-pB-JAu" secondAttribute="centerX" id="GZg-wz-khu"/>
+                                        <constraint firstItem="Ugp-Ag-GRv" firstAttribute="top" secondItem="NDc-Hf-OXK" secondAttribute="bottom" id="LV7-An-FsG"/>
+                                        <constraint firstItem="NDc-Hf-OXK" firstAttribute="top" secondItem="uoO-pB-JAu" secondAttribute="top" constant="100" id="RGD-qK-9qt"/>
+                                        <constraint firstAttribute="bottom" secondItem="NDc-Hf-OXK" secondAttribute="bottom" constant="150" id="dVF-CS-Vlq"/>
+                                        <constraint firstItem="NDc-Hf-OXK" firstAttribute="leading" secondItem="Ugp-Ag-GRv" secondAttribute="trailing" constant="-148" id="luq-sW-wdQ"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -655,8 +653,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Fill 22" width="32" height="32"/>
-        <image name="Fill 23" width="32" height="32"/>
         <image name="Minus" width="30" height="30"/>
         <image name="Plus" width="30" height="30"/>
         <image name="coin_dollar" width="32" height="32"/>
