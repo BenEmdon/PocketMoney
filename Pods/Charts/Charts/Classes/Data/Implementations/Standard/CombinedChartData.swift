@@ -26,12 +26,12 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
         super.init()
     }
     
-    public override init(xVals: [String?]?, dataSets: [ChartDataSet]?)
+    public override init(xVals: [String?]?, dataSets: [IChartDataSet]?)
     {
         super.init(xVals: xVals, dataSets: dataSets)
     }
     
-    public override init(xVals: [NSObject]?, dataSets: [ChartDataSet]?)
+    public override init(xVals: [NSObject]?, dataSets: [IChartDataSet]?)
     {
         super.init(xVals: xVals, dataSets: dataSets)
     }
@@ -53,7 +53,6 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
             checkIsLegal(newValue.dataSets)
             
             calcMinMax(start: _lastStart, end: _lastEnd)
-            calcYValueSum()
             calcYValueCount()
             
             calcXValAverageLength()
@@ -77,7 +76,6 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
             checkIsLegal(newValue.dataSets)
             
             calcMinMax(start: _lastStart, end: _lastEnd)
-            calcYValueSum()
             calcYValueCount()
             
             calcXValAverageLength()
@@ -101,7 +99,6 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
             checkIsLegal(newValue.dataSets)
             
             calcMinMax(start: _lastStart, end: _lastEnd)
-            calcYValueSum()
             calcYValueCount()
         
             calcXValAverageLength()
@@ -125,7 +122,6 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
             checkIsLegal(newValue.dataSets)
             
             calcMinMax(start: _lastStart, end: _lastEnd)
-            calcYValueSum()
             calcYValueCount()
             
             calcXValAverageLength()
@@ -149,7 +145,6 @@ public class CombinedChartData: BarLineScatterCandleBubbleChartData
             checkIsLegal(newValue.dataSets)
             
             calcMinMax(start: _lastStart, end: _lastEnd)
-            calcYValueSum()
             calcYValueCount()
             
             calcXValAverageLength()

@@ -32,26 +32,34 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
         
         for (var i = 0; i < scatterData.dataSetCount; i++)
         {
-            let set = scatterData.getDataSetByIndex(i)
+            guard let set = scatterData.getDataSetByIndex(i) else { continue }
             
-            if (set !== nil && set!.isVisible)
+            if set.isVisible
             {
-                drawDataSet(context: context, dataSet: set as! ScatterChartDataSet)
+                if !(set is IScatterChartDataSet)
+                {
+                    fatalError("Datasets for ScatterChartRenderer must conform to IScatterChartDataSet")
+                }
+                
+                drawDataSet(context: context, dataSet: set as! IScatterChartDataSet)
             }
         }
     }
     
     private var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawDataSet(context context: CGContext, dataSet: ScatterChartDataSet)
+    public func drawDataSet(context context: CGContext, dataSet: IScatterChartDataSet)
     {
-        guard let dataProvider = dataProvider else { return }
+        guard let
+            dataProvider = dataProvider,
+            animator = animator
+            else { return }
         
         let trans = dataProvider.getTransformer(dataSet.axisDependency)
         
-        let phaseY = _animator.phaseY
+        let phaseY = animator.phaseY
         
-        var entries = dataSet.yVals
+        let entryCount = dataSet.entryCount
         
         let shapeSize = dataSet.scatterShapeSize
         let shapeHalf = shapeSize / 2.0
@@ -64,9 +72,10 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
         
         CGContextSaveGState(context)
         
-        for (var j = 0, count = Int(min(ceil(CGFloat(entries.count) * _animator.phaseX), CGFloat(entries.count))); j < count; j++)
+        for (var j = 0, count = Int(min(ceil(CGFloat(entryCount) * animator.phaseX), CGFloat(entryCount))); j < count; j++)
         {
-            let e = entries[j]
+            guard let e = dataSet.entryForIndex(j) else { continue }
+            
             point.x = CGFloat(e.xIndex)
             point.y = CGFloat(e.value) * phaseY
             point = CGPointApplyAffineTransform(point, valueToPixelMatrix);            
@@ -157,12 +166,21 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawValues(context context: CGContext)
     {
-        guard let dataProvider = dataProvider, scatterData = dataProvider.scatterData else { return }
+        guard let
+            dataProvider = dataProvider,
+            scatterData = dataProvider.scatterData,
+            animator = animator
+            else { return }
         
         // if values are drawn
         if (scatterData.yValCount < Int(ceil(CGFloat(dataProvider.maxVisibleValueCount) * viewPortHandler.scaleX)))
         {
-            var dataSets = scatterData.dataSets as! [ScatterChartDataSet]
+            guard let dataSets = scatterData.dataSets as? [IScatterChartDataSet] else { return }
+            
+            let phaseX = animator.phaseX
+            let phaseY = animator.phaseY
+            
+            var pt = CGPoint()
             
             for (var i = 0; i < scatterData.dataSetCount; i++)
             {
@@ -174,36 +192,48 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
                 }
                 
                 let valueFont = dataSet.valueFont
-                let valueTextColor = dataSet.valueTextColor
                 
-                let formatter = dataSet.valueFormatter
+                guard let formatter = dataSet.valueFormatter else { continue }
                 
-                var entries = dataSet.yVals
+                let trans = dataProvider.getTransformer(dataSet.axisDependency)
+                let valueToPixelMatrix = trans.valueToPixelMatrix
                 
-                var positions = dataProvider.getTransformer(dataSet.axisDependency).generateTransformedValuesScatter(entries, phaseY: _animator.phaseY)
+                let entryCount = dataSet.entryCount
                 
                 let shapeSize = dataSet.scatterShapeSize
                 let lineHeight = valueFont.lineHeight
                 
-                for (var j = 0, count = Int(ceil(CGFloat(positions.count) * _animator.phaseX)); j < count; j++)
+                for (var j = 0, count = Int(ceil(CGFloat(entryCount) * phaseX)); j < count; j++)
                 {
-                    if (!viewPortHandler.isInBoundsRight(positions[j].x))
+                    guard let e = dataSet.entryForIndex(j) else { break }
+                    
+                    pt.x = CGFloat(e.xIndex)
+                    pt.y = CGFloat(e.value) * phaseY
+                    pt = CGPointApplyAffineTransform(pt, valueToPixelMatrix)
+                    
+                    if (!viewPortHandler.isInBoundsRight(pt.x))
                     {
                         break
                     }
                     
                     // make sure the lines don't do shitty things outside bounds
-                    if ((!viewPortHandler.isInBoundsLeft(positions[j].x)
-                        || !viewPortHandler.isInBoundsY(positions[j].y)))
+                    if ((!viewPortHandler.isInBoundsLeft(pt.x)
+                        || !viewPortHandler.isInBoundsY(pt.y)))
                     {
                         continue
                     }
                     
-                    let val = entries[j].value
+                    let text = formatter.stringFromNumber(e.value)
                     
-                    let text = formatter!.stringFromNumber(val)
-                    
-                    ChartUtils.drawText(context: context, text: text!, point: CGPoint(x: positions[j].x, y: positions[j].y - shapeSize - lineHeight), align: .Center, attributes: [NSFontAttributeName: valueFont, NSForegroundColorAttributeName: valueTextColor])
+                    ChartUtils.drawText(
+                        context: context,
+                        text: text!,
+                        point: CGPoint(
+                            x: pt.x,
+                            y: pt.y - shapeSize - lineHeight),
+                        align: .Center,
+                        attributes: [NSFontAttributeName: valueFont, NSForegroundColorAttributeName: dataSet.valueTextColorAt(j)]
+                    )
                 }
             }
         }
@@ -218,7 +248,11 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawHighlighted(context context: CGContext, indices: [ChartHighlight])
     {
-        guard let dataProvider = dataProvider, scatterData = dataProvider.scatterData else { return }
+        guard let
+            dataProvider = dataProvider,
+            scatterData = dataProvider.scatterData,
+            animator = animator
+            else { return }
         
         let chartXMax = dataProvider.chartXMax
         
@@ -226,7 +260,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
         
         for (var i = 0; i < indices.count; i++)
         {
-            guard let set = scatterData.getDataSetByIndex(indices[i].dataSetIndex) as? ScatterChartDataSet else { continue }
+            guard let set = scatterData.getDataSetByIndex(indices[i].dataSetIndex) as? IScatterChartDataSet else { continue }
             
             if !set.isHighlightEnabled
             {
@@ -246,7 +280,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
             
             let xIndex = indices[i].xIndex; // get the x-position
             
-            if (CGFloat(xIndex) > CGFloat(chartXMax) * _animator.phaseX)
+            if (CGFloat(xIndex) > CGFloat(chartXMax) * animator.phaseX)
             {
                 continue
             }
@@ -257,7 +291,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
                 continue
             }
             
-            let y = CGFloat(yVal) * _animator.phaseY; // get the y-position
+            let y = CGFloat(yVal) * animator.phaseY; // get the y-position
             
             _highlightPointBuffer.x = CGFloat(xIndex)
             _highlightPointBuffer.y = y

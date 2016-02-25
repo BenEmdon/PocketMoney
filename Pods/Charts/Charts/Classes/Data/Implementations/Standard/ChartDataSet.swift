@@ -15,64 +15,29 @@
 import Foundation
 import UIKit
 
-public class ChartDataSet: NSObject
+public class ChartDataSet: ChartBaseDataSet
 {
-    public var colors = [UIColor]()
-    internal var _yVals: [ChartDataEntry]!
-    internal var _yMax = Double(0.0)
-    internal var _yMin = Double(0.0)
-    internal var _yValueSum = Double(0.0)
-    
-    /// the last start value used for calcMinMax
-    internal var _lastStart: Int = 0
-    
-    /// the last end value used for calcMinMax
-    internal var _lastEnd: Int = 0
-    
-    public var label: String? = "DataSet"
-    public var visible = true
-    public var drawValuesEnabled = true
-    
-    /// the color used for the value-text
-    public var valueTextColor: UIColor = UIColor.blackColor()
-    
-    /// the font for the value-text labels
-    public var valueFont: UIFont = UIFont.systemFontOfSize(7.0)
-    
-    /// the formatter used to customly format the values
-    internal var _valueFormatter: NSNumberFormatter? = ChartUtils.defaultValueFormatter()
-    
-    /// the axis this DataSet should be plotted against.
-    public var axisDependency = ChartYAxis.AxisDependency.Left
-
-    public var yVals: [ChartDataEntry] { return _yVals }
-    public var yValueSum: Double { return _yValueSum }
-    public var yMin: Double { return _yMin }
-    public var yMax: Double { return _yMax }
-    
-    /// if true, value highlighting is enabled
-    public var highlightEnabled = true
-    
-    /// - returns: true if value highlighting is enabled for this dataset
-    public var isHighlightEnabled: Bool { return highlightEnabled }
-    
-    public override required init()
+    public required init()
     {
         super.init()
+        
+        _yVals = [ChartDataEntry]()
+    }
+    
+    public override init(label: String?)
+    {
+        super.init(label: label)
+        
+        _yVals = [ChartDataEntry]()
     }
     
     public init(yVals: [ChartDataEntry]?, label: String?)
     {
-        super.init()
+        super.init(label: label)
         
-        self.label = label
         _yVals = yVals == nil ? [ChartDataEntry]() : yVals
         
-        // default color
-        colors.append(UIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
-        
         self.calcMinMax(start: _lastStart, end: _lastEnd)
-        self.calcYValueSum()
     }
     
     public convenience init(yVals: [ChartDataEntry]?)
@@ -80,14 +45,27 @@ public class ChartDataSet: NSObject
         self.init(yVals: yVals, label: "DataSet")
     }
     
+    // MARK: - Data functions and accessors
+    
+    internal var _yVals: [ChartDataEntry]!
+    internal var _yMax = Double(0.0)
+    internal var _yMin = Double(0.0)
+    
+    /// the last start value used for calcMinMax
+    internal var _lastStart: Int = 0
+    
+    /// the last end value used for calcMinMax
+    internal var _lastEnd: Int = 0
+    
+    public var yVals: [ChartDataEntry] { return _yVals }
+    
     /// Use this method to tell the data set that the underlying data has changed
-    public func notifyDataSetChanged()
+    public override func notifyDataSetChanged()
     {
         calcMinMax(start: _lastStart, end: _lastEnd)
-        calcYValueSum()
     }
     
-    internal func calcMinMax(start start : Int, end: Int)
+    public override func calcMinMax(start start: Int, end: Int)
     {
         let yValCount = _yVals.count
         
@@ -137,25 +115,17 @@ public class ChartDataSet: NSObject
         }
     }
     
-    private func calcYValueSum()
-    {
-        _yValueSum = 0
-        
-        for var i = 0; i < _yVals.count; i++
-        {
-            _yValueSum += fabs(_yVals[i].value)
-        }
-    }
+    /// - returns: the minimum y-value this DataSet holds
+    public override var yMin: Double { return _yMin }
     
-    /// - returns: the average value across all entries in this DataSet.
-    public var average: Double
-    {
-        return yValueSum / Double(valueCount)
-    }
+    /// - returns: the maximum y-value this DataSet holds
+    public override var yMax: Double { return _yMax }
     
-    public var entryCount: Int { return _yVals!.count; }
+    /// - returns: the number of y-values this DataSet represents
+    public override var entryCount: Int { return _yVals?.count ?? 0 }
     
-    public func yValForXIndex(x: Int) -> Double
+    /// - returns: the value of the Entry object at the given xIndex. Returns NaN if no value is at the given x-index.
+    public override func yValForXIndex(x: Int) -> Double
     {
         let e = self.entryForXIndex(x)
         
@@ -163,10 +133,18 @@ public class ChartDataSet: NSObject
         else { return Double.NaN }
     }
     
+    /// - returns: the entry object found at the given index (not x-index!)
+    /// - throws: out of bounds
+    /// if `i` is out of bounds, it may throw an out-of-bounds exception
+    public override func entryForIndex(i: Int) -> ChartDataEntry?
+    {
+        return _yVals[i]
+    }
+    
     /// - returns: the first Entry object found at the given xIndex with binary search.
-    /// If the no Entry at the specifed x-index is found, this method returns the Entry at the closest x-index. 
+    /// If the no Entry at the specifed x-index is found, this method returns the Entry at the closest x-index.
     /// nil if no Entry object at that index.
-    public func entryForXIndex(x: Int) -> ChartDataEntry?
+    public override func entryForXIndex(x: Int) -> ChartDataEntry?
     {
         let index = self.entryIndex(xIndex: x)
         if (index > -1)
@@ -223,7 +201,10 @@ public class ChartDataSet: NSObject
         return entries
     }
     
-    public func entryIndex(xIndex x: Int) -> Int
+    /// - returns: the array-index of the specified entry
+    ///
+    /// - parameter x: x-index of the entry to search for
+    public override func entryIndex(xIndex x: Int) -> Int
     {
         var low = 0
         var high = _yVals.count - 1
@@ -259,60 +240,28 @@ public class ChartDataSet: NSObject
         return closest
     }
     
-    public func entryIndex(entry e: ChartDataEntry, isEqual: Bool) -> Int
+    /// - returns: the array-index of the specified entry
+    ///
+    /// - parameter e: the entry to search for
+    public override func entryIndex(entry e: ChartDataEntry) -> Int
     {
-        if (isEqual)
+        for (var i = 0; i < _yVals.count; i++)
         {
-            for (var i = 0; i < _yVals.count; i++)
+            if _yVals[i] === e
             {
-                if (_yVals[i].isEqual(e))
-                {
-                    return i
-                }
-            }
-        }
-        else
-        {
-            for (var i = 0; i < _yVals.count; i++)
-            {
-                if (_yVals[i] === e)
-                {
-                    return i
-                }
+                return i
             }
         }
         
         return -1
     }
     
-    /// the formatter used to customly format the values
-    public var valueFormatter: NSNumberFormatter?
-    {
-        get
-        {
-            return _valueFormatter
-        }
-        set
-        {
-            if newValue == nil
-            {
-                _valueFormatter = ChartUtils.defaultValueFormatter()
-            }
-            else
-            {
-                _valueFormatter = newValue
-            }
-        }
-    }
-    
-    /// - returns: the number of entries this DataSet holds.
-    public var valueCount: Int { return _yVals.count; }
-    
     /// Adds an Entry to the DataSet dynamically.
     /// Entries are added to the end of the list.
     /// This will also recalculate the current minimum and maximum values of the DataSet and the value-sum.
     /// - parameter e: the entry to add
-    public func addEntry(e: ChartDataEntry)
+    /// - returns: true
+    public override func addEntry(e: ChartDataEntry) -> Bool
     {
         let val = e.value
         
@@ -338,16 +287,17 @@ public class ChartDataSet: NSObject
             }
         }
         
-        _yValueSum += val
-        
         _yVals.append(e)
+        
+        return true
     }
     
     /// Adds an Entry to the DataSet dynamically.
     /// Entries are added to their appropriate index respective to it's x-index.
     /// This will also recalculate the current minimum and maximum values of the DataSet and the value-sum.
     /// - parameter e: the entry to add
-    public func addEntryOrdered(e: ChartDataEntry)
+    /// - returns: true
+    public override func addEntryOrdered(e: ChartDataEntry) -> Bool
     {
         let val = e.value
         
@@ -372,8 +322,6 @@ public class ChartDataSet: NSObject
                 _yMin = val
             }
         }
-        
-        _yValueSum += val
         
         if _yVals.last?.xIndex > e.xIndex
         {
@@ -383,13 +331,20 @@ public class ChartDataSet: NSObject
                 closestIndex++
             }
             _yVals.insert(e, atIndex: closestIndex)
-            return;
+            
+            return true
         }
         
         _yVals.append(e)
+        
+        return true
     }
     
-    public func removeEntry(entry: ChartDataEntry) -> Bool
+    /// Removes an Entry from the DataSet dynamically.
+    /// This will also recalculate the current minimum and maximum values of the DataSet and the value-sum.
+    /// - parameter entry: the entry to remove
+    /// - returns: true if the entry was removed successfully, else if the entry does not exist
+    public override func removeEntry(entry: ChartDataEntry) -> Bool
     {
         var removed = false
         
@@ -405,33 +360,16 @@ public class ChartDataSet: NSObject
         
         if (removed)
         {
-            _yValueSum -= entry.value
             calcMinMax(start: _lastStart, end: _lastEnd)
         }
         
         return removed
     }
     
-    public func removeEntry(xIndex xIndex: Int) -> Bool
-    {
-        let index = self.entryIndex(xIndex: xIndex)
-        if (index > -1)
-        {
-            let e = _yVals.removeAtIndex(index)
-            
-            _yValueSum -= e.value
-            calcMinMax(start: _lastStart, end: _lastEnd)
-            
-            return true
-        }
-        
-        return false
-    }
-    
     /// Removes the first Entry (at index 0) of this DataSet from the entries array.
     ///
     /// - returns: true if successful, false if not.
-    public func removeFirst() -> Bool
+    public override func removeFirst() -> Bool
     {
         let entry: ChartDataEntry? = _yVals.isEmpty ? nil : _yVals.removeFirst()
         
@@ -439,10 +377,6 @@ public class ChartDataSet: NSObject
         
         if (removed)
         {
-            
-            let val = entry!.value
-            _yValueSum -= val
-            
             calcMinMax(start: _lastStart, end: _lastEnd)
         }
         
@@ -452,7 +386,7 @@ public class ChartDataSet: NSObject
     /// Removes the last Entry (at index size-1) of this DataSet from the entries array.
     ///
     /// - returns: true if successful, false if not.
-    public func removeLast() -> Bool
+    public override func removeLast() -> Bool
     {
         let entry: ChartDataEntry? = _yVals.isEmpty ? nil : _yVals.removeLast()
         
@@ -460,54 +394,15 @@ public class ChartDataSet: NSObject
         
         if (removed)
         {
-            
-            let val = entry!.value
-            _yValueSum -= val
-            
             calcMinMax(start: _lastStart, end: _lastEnd)
         }
         
         return removed;
     }
     
-    public func resetColors()
-    {
-        colors.removeAll(keepCapacity: false)
-    }
-    
-    public func addColor(color: UIColor)
-    {
-        colors.append(color)
-    }
-    
-    public func setColor(color: UIColor)
-    {
-        colors.removeAll(keepCapacity: false)
-        colors.append(color)
-    }
-    
-    public func colorAt(var index: Int) -> UIColor
-    {
-        if (index < 0)
-        {
-            index = 0
-        }
-        return colors[index % colors.count]
-    }
-    
-    public var isVisible: Bool
-    {
-        return visible
-    }
-    
-    public var isDrawValuesEnabled: Bool
-    {
-        return drawValuesEnabled
-    }
-    
     /// Checks if this DataSet contains the specified Entry.
     /// - returns: true if contains the entry, false if not.
-    public func contains(e: ChartDataEntry) -> Bool
+    public override func contains(e: ChartDataEntry) -> Bool
     {
         for entry in _yVals
         {
@@ -521,48 +416,31 @@ public class ChartDataSet: NSObject
     }
     
     /// Removes all values from this DataSet and recalculates min and max value.
-    public func clear()
+    public override func clear()
     {
         _yVals.removeAll(keepCapacity: true)
         _lastStart = 0
         _lastEnd = 0
         notifyDataSetChanged()
     }
+    
+    // MARK: - Data functions and accessors
+    
+    /// - returns: the number of entries this DataSet holds.
+    public var valueCount: Int { return _yVals.count }
 
-    // MARK: NSObject
+    // MARK: - NSCopying
     
-    public override var description: String
+    public override func copyWithZone(zone: NSZone) -> AnyObject
     {
-        return String(format: "ChartDataSet, label: %@, %i entries", arguments: [self.label ?? "", _yVals.count])
-    }
-    
-    public override var debugDescription: String
-    {
-        var desc = description + ":"
+        let copy = super.copyWithZone(zone) as! ChartDataSet
         
-        for (var i = 0; i < _yVals.count; i++)
-        {
-            desc += "\n" + _yVals[i].description
-        }
-        
-        return desc
-    }
-    
-    // MARK: NSCopying
-    
-    public func copyWithZone(zone: NSZone) -> AnyObject
-    {
-        let copy = self.dynamicType.init()
-        
-        copy.colors = colors
         copy._yVals = _yVals
         copy._yMax = _yMax
         copy._yMin = _yMin
-        copy._yValueSum = _yValueSum
         copy._lastStart = _lastStart
         copy._lastEnd = _lastEnd
-        copy.label = label
-        
+
         return copy
     }
 }

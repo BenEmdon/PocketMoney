@@ -1,5 +1,5 @@
 //
-//  LineScatterCandleChartDataSet.swift
+//  LineScatterCandleRadarChartDataSet.swift
 //  Charts
 //
 //  Created by Daniel Cohen Gindi on 29/7/15.
@@ -14,15 +14,22 @@
 import Foundation
 import UIKit
 
-public class LineScatterCandleChartDataSet: BarLineScatterCandleBubbleChartDataSet
+public class LineScatterCandleRadarChartDataSet: BarLineScatterCandleBubbleChartDataSet, ILineScatterCandleRadarChartDataSet
 {
+    // MARK: - Data functions and accessors
+    
+    // MARK: - Styling functions and accessors
+    
     /// Enables / disables the horizontal highlight-indicator. If disabled, the indicator is not drawn.
     public var drawHorizontalHighlightIndicatorEnabled = true
     
     /// Enables / disables the vertical highlight-indicator. If disabled, the indicator is not drawn.
     public var drawVerticalHighlightIndicatorEnabled = true
     
+    /// - returns: true if horizontal highlight indicator lines are enabled (drawn)
     public var isHorizontalHighlightIndicatorEnabled: Bool { return drawHorizontalHighlightIndicatorEnabled }
+    
+    /// - returns: true if vertical highlight indicator lines are enabled (drawn)
     public var isVerticalHighlightIndicatorEnabled: Bool { return drawVerticalHighlightIndicatorEnabled }
     
     /// Enables / disables both vertical and horizontal highlight-indicators.
@@ -37,9 +44,10 @@ public class LineScatterCandleChartDataSet: BarLineScatterCandleBubbleChartDataS
     
     public override func copyWithZone(zone: NSZone) -> AnyObject
     {
-        let copy = super.copyWithZone(zone) as! LineScatterCandleChartDataSet
+        let copy = super.copyWithZone(zone) as! LineScatterCandleRadarChartDataSet
         copy.drawHorizontalHighlightIndicatorEnabled = drawHorizontalHighlightIndicatorEnabled
         copy.drawVerticalHighlightIndicatorEnabled = drawVerticalHighlightIndicatorEnabled
         return copy
     }
+    
 }

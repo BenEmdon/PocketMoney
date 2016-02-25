@@ -30,7 +30,7 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let dataProvider = dataProvider, candleData = dataProvider.candleData else { return }
 
-        for set in candleData.dataSets as! [CandleChartDataSet]
+        for set in candleData.dataSets as! [ICandleChartDataSet]
         {
             if set.isVisible && set.entryCount > 0
             {
@@ -43,18 +43,21 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     private var _bodyRect = CGRect()
     private var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawDataSet(context context: CGContext, dataSet: CandleChartDataSet)
+    public func drawDataSet(context context: CGContext, dataSet: ICandleChartDataSet)
     {
-        guard let trans = dataProvider?.getTransformer(dataSet.axisDependency) else { return }
+        guard let
+            trans = dataProvider?.getTransformer(dataSet.axisDependency),
+            animator = animator
+            else { return }
         
-        let phaseX = _animator.phaseX
-        let phaseY = _animator.phaseY
+        let phaseX = animator.phaseX
+        let phaseY = animator.phaseY
         let bodySpace = dataSet.bodySpace
         
-        var entries = dataSet.yVals as! [CandleChartDataEntry]
+        let entryCount = dataSet.entryCount
         
-        let minx = max(_minX, 0)
-        let maxx = min(_maxX + 1, entries.count)
+        let minx = max(self.minX, 0)
+        let maxx = min(self.maxX + 1, entryCount)
         
         CGContextSaveGState(context)
         
@@ -63,9 +66,9 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
         for (var j = minx, count = Int(ceil(CGFloat(maxx - minx) * phaseX + CGFloat(minx))); j < count; j++)
         {
             // get the entry
-            let e = entries[j]
+            guard let e = dataSet.entryForIndex(j) as? CandleChartDataEntry else { continue }
             
-            if (e.xIndex < _minX || e.xIndex > _maxX)
+            if (e.xIndex < minx || e.xIndex >= maxx)
             {
                 continue
             }
@@ -155,12 +158,21 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawValues(context context: CGContext)
     {
-        guard let dataProvider = dataProvider, candleData = dataProvider.candleData else { return }
+        guard let
+            dataProvider = dataProvider,
+            candleData = dataProvider.candleData,
+            animator = animator
+            else { return }
         
         // if values are drawn
         if (candleData.yValCount < Int(ceil(CGFloat(dataProvider.maxVisibleValueCount) * viewPortHandler.scaleX)))
         {
             var dataSets = candleData.dataSets
+            
+            let phaseX = animator.phaseX
+            let phaseY = animator.phaseY
+            
+            var pt = CGPoint()
             
             for (var i = 0; i < dataSets.count; i++)
             {
@@ -172,40 +184,46 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
                 }
                 
                 let valueFont = dataSet.valueFont
-                let valueTextColor = dataSet.valueTextColor
                 
-                let formatter = dataSet.valueFormatter
+                guard let formatter = dataSet.valueFormatter else { continue }
                 
                 let trans = dataProvider.getTransformer(dataSet.axisDependency)
+                let valueToPixelMatrix = trans.valueToPixelMatrix
                 
-                var entries = dataSet.yVals as! [CandleChartDataEntry]
+                let entryCount = dataSet.entryCount
                 
-                let minx = max(_minX, 0)
-                let maxx = min(_maxX + 1, entries.count)
-                
-                var positions = trans.generateTransformedValuesCandle(entries, phaseY: _animator.phaseY)
+                let minx = max(self.minX, 0)
+                let maxx = min(self.maxX + 1, entryCount)
                 
                 let lineHeight = valueFont.lineHeight
                 let yOffset: CGFloat = lineHeight + 5.0
                 
-                for (var j = minx, count = Int(ceil(CGFloat(maxx - minx) * _animator.phaseX + CGFloat(minx))); j < count; j++)
+                for (var j = minx, count = Int(ceil(CGFloat(maxx - minx) * phaseX + CGFloat(minx))); j < count; j++)
                 {
-                    let x = positions[j].x
-                    let y = positions[j].y
+                    guard let e = dataSet.entryForIndex(j) as? CandleChartDataEntry else { break }
                     
-                    if (!viewPortHandler.isInBoundsRight(x))
+                    pt.x = CGFloat(e.xIndex)
+                    pt.y = CGFloat(e.high) * phaseY
+                    pt = CGPointApplyAffineTransform(pt, valueToPixelMatrix)
+                    
+                    if (!viewPortHandler.isInBoundsRight(pt.x))
                     {
                         break
                     }
                     
-                    if (!viewPortHandler.isInBoundsLeft(x) || !viewPortHandler.isInBoundsY(y))
+                    if (!viewPortHandler.isInBoundsLeft(pt.x) || !viewPortHandler.isInBoundsY(pt.y))
                     {
                         continue
                     }
                     
-                    let val = entries[j].high
-                    
-                    ChartUtils.drawText(context: context, text: formatter!.stringFromNumber(val)!, point: CGPoint(x: x, y: y - yOffset), align: .Center, attributes: [NSFontAttributeName: valueFont, NSForegroundColorAttributeName: valueTextColor])
+                    ChartUtils.drawText(
+                        context: context,
+                        text: formatter.stringFromNumber(e.high)!,
+                        point: CGPoint(
+                            x: pt.x,
+                            y: pt.y - yOffset),
+                        align: .Center,
+                        attributes: [NSFontAttributeName: valueFont, NSForegroundColorAttributeName: dataSet.valueTextColorAt(j)])
                 }
             }
         }
@@ -219,7 +237,11 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawHighlighted(context context: CGContext, indices: [ChartHighlight])
     {
-        guard let dataProvider = dataProvider, candleData = dataProvider.candleData else { return }
+        guard let
+            dataProvider = dataProvider,
+            candleData = dataProvider.candleData,
+            animator = animator
+            else { return }
         
         CGContextSaveGState(context)
         
@@ -227,16 +249,16 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
         {
             let xIndex = indices[i].xIndex; // get the x-position
             
-            let set = candleData.getDataSetByIndex(indices[i].dataSetIndex) as! CandleChartDataSet!
+            guard let set = candleData.getDataSetByIndex(indices[i].dataSetIndex) as? ICandleChartDataSet else { continue }
             
-            if (set === nil || !set.isHighlightEnabled)
+            if (!set.isHighlightEnabled)
             {
                 continue
             }
             
-            let e = set.entryForXIndex(xIndex) as! CandleChartDataEntry!
+            guard let e = set.entryForXIndex(xIndex) as? CandleChartDataEntry else { continue }
             
-            if (e === nil || e.xIndex != xIndex)
+            if e.xIndex != xIndex
             {
                 continue
             }
@@ -254,8 +276,8 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
                 CGContextSetLineDash(context, 0.0, nil, 0)
             }
             
-            let low = CGFloat(e.low) * _animator.phaseY
-            let high = CGFloat(e.high) * _animator.phaseY
+            let low = CGFloat(e.low) * animator.phaseY
+            let high = CGFloat(e.high) * animator.phaseY
             let y = (low + high) / 2.0
             
             _highlightPointBuffer.x = CGFloat(xIndex)

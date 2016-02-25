@@ -18,6 +18,11 @@
 		1D38FC561C30B1E80046B868 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */; };
 		1D4A25141C44A2AC0010B4DB /* CreateDataUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */; };
 		1D64BB051C3EEFF60026C984 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */; };
+		1DC6E0971C7EA681006DB691 /* MasterBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC6E0961C7EA681006DB691 /* MasterBalanceViewController.swift */; };
+		1DC6E09A1C7EA880006DB691 /* BalanceSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC6E0981C7EA880006DB691 /* BalanceSummaryViewController.swift */; };
+		1DC6E09B1C7EA880006DB691 /* BalanceSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC6E0991C7EA880006DB691 /* BalanceSummaryViewController.xib */; };
+		1DC6E09E1C7EA8BD006DB691 /* IOUSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC6E09C1C7EA8BD006DB691 /* IOUSummaryViewController.swift */; };
+		1DC6E09F1C7EA8BD006DB691 /* IOUSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC6E09D1C7EA8BD006DB691 /* IOUSummaryViewController.xib */; };
 		1DD29C631C47F6C400F6ACA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */; };
 		1DD29C641C47F6C400F6ACA9 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */; };
 		1DD29C651C47F6C400F6ACA9 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */; };
@@ -99,6 +104,11 @@
 		1D38FC551C30B1E80046B868 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDataUITableViewController.swift; sourceTree = "<group>"; };
 		1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1DC6E0961C7EA681006DB691 /* MasterBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterBalanceViewController.swift; sourceTree = "<group>"; };
+		1DC6E0981C7EA880006DB691 /* BalanceSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceSummaryViewController.swift; sourceTree = "<group>"; };
+		1DC6E0991C7EA880006DB691 /* BalanceSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BalanceSummaryViewController.xib; sourceTree = "<group>"; };
+		1DC6E09C1C7EA8BD006DB691 /* IOUSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOUSummaryViewController.swift; sourceTree = "<group>"; };
+		1DC6E09D1C7EA8BD006DB691 /* IOUSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUSummaryViewController.xib; sourceTree = "<group>"; };
 		1DD29C451C47F6C400F6ACA9 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		1DD29C461C47F6C400F6ACA9 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		1DD29C471C47F6C400F6ACA9 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -193,6 +203,11 @@
 				1D4A25131C44A2AC0010B4DB /* CreateDataUITableViewController.swift */,
 				1D64BB041C3EEFF60026C984 /* DetailsViewController.swift */,
 				1DD29C801C481CC500F6ACA9 /* BalanceViewController.swift */,
+				1DC6E0961C7EA681006DB691 /* MasterBalanceViewController.swift */,
+				1DC6E0981C7EA880006DB691 /* BalanceSummaryViewController.swift */,
+				1DC6E0991C7EA880006DB691 /* BalanceSummaryViewController.xib */,
+				1DC6E09C1C7EA8BD006DB691 /* IOUSummaryViewController.swift */,
+				1DC6E09D1C7EA8BD006DB691 /* IOUSummaryViewController.xib */,
 				1D2B8B251C302BA10043DBD1 /* Main.storyboard */,
 				1D2B8B2B1C302BA10043DBD1 /* Assets.xcassets */,
 				1D2B8B2D1C302BA10043DBD1 /* LaunchScreen.storyboard */,
@@ -392,7 +407,9 @@
 				1D2B8B2F1C302BA10043DBD1 /* LaunchScreen.storyboard in Resources */,
 				1D2B8B2C1C302BA10043DBD1 /* Assets.xcassets in Resources */,
 				1D2B8B271C302BA10043DBD1 /* Main.storyboard in Resources */,
+				1DC6E09B1C7EA880006DB691 /* BalanceSummaryViewController.xib in Resources */,
 				1DD29C721C47F6C400F6ACA9 /* LoadingView.xib in Resources */,
+				1DC6E09F1C7EA8BD006DB691 /* IOUSummaryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +501,7 @@
 				1D2B8B221C302BA10043DBD1 /* AppDelegate.swift in Sources */,
 				1DD29C661C47F6C400F6ACA9 /* BlurView.swift in Sources */,
 				1DD29C701C47F6C400F6ACA9 /* KeyboardLayoutConstraint.swift in Sources */,
+				1DC6E09E1C7EA8BD006DB691 /* IOUSummaryViewController.swift in Sources */,
 				1DD29C761C47F6C400F6ACA9 /* SpringAnimation.swift in Sources */,
 				1DD29C731C47F6C400F6ACA9 /* Misc.swift in Sources */,
 				1DD29C7D1C47F6C400F6ACA9 /* TransitionManager.swift in Sources */,
@@ -491,7 +509,9 @@
 				1D2B8B2A1C302BA10043DBD1 /* Test.xcdatamodeld in Sources */,
 				1DD29C631C47F6C400F6ACA9 /* AsyncButton.swift in Sources */,
 				1DD29C7F1C47F6C400F6ACA9 /* UnwindSegue.swift in Sources */,
+				1DC6E0971C7EA681006DB691 /* MasterBalanceViewController.swift in Sources */,
 				1DD29C811C481CC500F6ACA9 /* BalanceViewController.swift in Sources */,
+				1DC6E09A1C7EA880006DB691 /* BalanceSummaryViewController.swift in Sources */,
 				1DD29C7C1C47F6C400F6ACA9 /* SpringView.swift in Sources */,
 				1DD29C691C47F6C400F6ACA9 /* DesignableLabel.swift in Sources */,
 				1DD29C651C47F6C400F6ACA9 /* AutoTextView.swift in Sources */,

@@ -35,10 +35,10 @@ public class CombinedChartView: BarLineChartViewBase, LineChartDataProvider, Bar
     {
         super.initialize()
         
-        _highlighter = CombinedHighlighter(chart: self)
+        self.highlighter = CombinedHighlighter(chart: self)
         
         /// WORKAROUND: Swift 2.0 compiler malfunctions when optimizations are enabled, and assigning directly to _fillFormatter causes a crash with a EXC_BAD_ACCESS. See https://github.com/danielgindi/ios-charts/issues/406
-        let workaroundFormatter = BarLineChartFillFormatter()
+        let workaroundFormatter = ChartDefaultFillFormatter()
         _fillFormatter = workaroundFormatter
         
         renderer = CombinedChartRenderer(chart: self, animator: _animator, viewPortHandler: _viewPortHandler)
@@ -55,7 +55,7 @@ public class CombinedChartView: BarLineChartViewBase, LineChartDataProvider, Bar
             
             if (self.bubbleData !== nil)
             {
-                for set in self.bubbleData?.dataSets as! [BubbleChartDataSet]
+                for set in self.bubbleData?.dataSets as! [IBubbleChartDataSet]
                 {
                     let xmin = set.xMin
                     let xmax = set.xMax
@@ -105,7 +105,7 @@ public class CombinedChartView: BarLineChartViewBase, LineChartDataProvider, Bar
             _fillFormatter = newValue
             if (_fillFormatter == nil)
             {
-                _fillFormatter = BarLineChartFillFormatter()
+                _fillFormatter = ChartDefaultFillFormatter()
             }
         }
     }

@@ -13,24 +13,23 @@ import Foundation
 import CoreGraphics
 import UIKit
 
-public class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet
+public class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBubbleChartDataSet
 {
+    // MARK: - Data functions and accessors
+    
     internal var _xMax = Double(0.0)
     internal var _xMin = Double(0.0)
     internal var _maxSize = CGFloat(0.0)
-
+    
     public var xMin: Double { return _xMin }
     public var xMax: Double { return _xMax }
     public var maxSize: CGFloat { return _maxSize }
     
-    public func setColor(color: UIColor, alpha: CGFloat)
+    public override func calcMinMax(start start: Int, end: Int)
     {
-        super.setColor(color.colorWithAlphaComponent(alpha))
-    }
-    
-    internal override func calcMinMax(start start: Int, end: Int)
-    {
-        if (yVals.count == 0)
+        let yValCount = self.entryCount
+        
+        if yValCount == 0
         {
             return
         }
@@ -41,9 +40,9 @@ public class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet
         
         var endValue : Int
         
-        if end == 0
+        if end == 0 || end >= yValCount
         {
-            endValue = entries.count - 1
+            endValue = yValCount - 1
         }
         else
         {
@@ -95,9 +94,6 @@ public class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet
         }
     }
     
-    /// Sets/gets the width of the circle that surrounds the bubble when highlighted
-    public var highlightCircleWidth: CGFloat = 2.5
-    
     private func yMin(entry: BubbleChartDataEntry) -> Double
     {
         return entry.value
@@ -121,5 +117,22 @@ public class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet
     private func largestSize(entry: BubbleChartDataEntry) -> CGFloat
     {
         return entry.size
+    }
+    
+    // MARK: - Styling functions and accessors
+    
+    /// Sets/gets the width of the circle that surrounds the bubble when highlighted
+    public var highlightCircleWidth: CGFloat = 2.5
+    
+    // MARK: - NSCopying
+    
+    public override func copyWithZone(zone: NSZone) -> AnyObject
+    {
+        let copy = super.copyWithZone(zone) as! BubbleChartDataSet
+        copy._xMin = _xMin
+        copy._xMax = _xMax
+        copy._maxSize = _maxSize
+        copy.highlightCircleWidth = highlightCircleWidth
+        return copy
     }
 }
