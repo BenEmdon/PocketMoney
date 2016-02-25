@@ -16,9 +16,11 @@ class DetailsViewController: UIViewController {
     
     @IBAction func cancelButtonDidPress(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("cancelData", object: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func confirmButtonDidPress(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("addData", object: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -48,7 +48,6 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
         
         // Sends notifcation for tableview to reload
         NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: Add Data
@@ -81,7 +80,6 @@ class CreateDataUITableViewController: UITableViewController, UITextFieldDelegat
             
             // Sends notifcation for tableview to reload
             NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
