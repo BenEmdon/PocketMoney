@@ -8,12 +8,22 @@
 
 import UIKit
 
-class MasterBalanceViewController: UIViewController {
+class MasterBalanceViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    
+    
+    @IBAction func pageControlDidPage(sender: AnyObject) {
+        let xOffset = scrollView.bounds.width * CGFloat(pageControl.currentPage)
+        scrollView.setContentOffset(CGPointMake(xOffset,0) , animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
         
         // Creates an instance of BalanceSummaryViewController from nib
         let viewController0 = UIViewController(nibName: "BalanceSummaryViewController", bundle: nil)
@@ -40,6 +50,10 @@ class MasterBalanceViewController: UIViewController {
         viewController1.didMoveToParentViewController(self)
         
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2, 0)        
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.bounds.width)
     }
     
     
