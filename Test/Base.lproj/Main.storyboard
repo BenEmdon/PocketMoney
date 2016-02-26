@@ -451,7 +451,7 @@
                                 </connections>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.49812030792236328" green="0.49820977449417114" blue="0.49811470508575439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.26802641153335571" green="0.32381612062454224" blue="0.39487656950950623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qOv-ME-lP8" firstAttribute="top" secondItem="eM7-7V-e2z" secondAttribute="bottom" id="Ada-7u-rMY"/>
                             <constraint firstItem="qOv-ME-lP8" firstAttribute="leading" secondItem="Dg9-lE-41b" secondAttribute="leading" id="GWg-07-iYt"/>
@@ -687,7 +687,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.27058823529999998" green="0.32549019610000002" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.26802641153335571" green="0.32381612062454224" blue="0.39487656950950623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                             <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
