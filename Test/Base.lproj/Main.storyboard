@@ -441,10 +441,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="dwQ-bv-iFw">
-                                <rect key="frame" x="168" y="291" width="39" height="37"/>
+                                <rect key="frame" x="168" y="598" width="39" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="cGE-e5-9Ea"/>
-                                    <constraint firstAttribute="height" constant="37" id="y30-KW-15i"/>
+                                    <constraint firstAttribute="height" constant="20" id="y30-KW-15i"/>
                                 </constraints>
                                 <connections>
                                     <action selector="pageControlDidPage:" destination="XQ7-ZJ-2Bf" eventType="valueChanged" id="Isx-aQ-2xP"/>
@@ -456,9 +456,9 @@
                             <constraint firstItem="qOv-ME-lP8" firstAttribute="top" secondItem="eM7-7V-e2z" secondAttribute="bottom" id="Ada-7u-rMY"/>
                             <constraint firstItem="qOv-ME-lP8" firstAttribute="leading" secondItem="Dg9-lE-41b" secondAttribute="leading" id="GWg-07-iYt"/>
                             <constraint firstItem="dwQ-bv-iFw" firstAttribute="centerX" secondItem="Dg9-lE-41b" secondAttribute="centerX" id="IXv-mI-U5e"/>
-                            <constraint firstItem="dwQ-bv-iFw" firstAttribute="centerY" secondItem="Dg9-lE-41b" secondAttribute="centerY" id="QUM-Ey-jMb"/>
                             <constraint firstAttribute="trailing" secondItem="qOv-ME-lP8" secondAttribute="trailing" id="h2d-iV-Uh8"/>
                             <constraint firstItem="kEE-JW-ceg" firstAttribute="top" secondItem="qOv-ME-lP8" secondAttribute="bottom" id="nV1-kT-S9U"/>
+                            <constraint firstItem="kEE-JW-ceg" firstAttribute="top" secondItem="dwQ-bv-iFw" secondAttribute="bottom" id="sXd-F2-HOs"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" image="coin_dollar" id="37G-hh-sTL"/>
