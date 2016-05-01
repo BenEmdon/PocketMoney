@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D4FF29F1CD56310008BC2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FF29E1CD56310008BC2F0 /* AppDelegate.swift */; };
+		1D4FF2A41CD56310008BC2F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FF2A21CD56310008BC2F0 /* Main.storyboard */; };
+		1D4FF2A71CD56310008BC2F0 /* PocketMoney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FF2A51CD56310008BC2F0 /* PocketMoney.xcdatamodeld */; };
+		1D4FF2A91CD56310008BC2F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FF2A81CD56310008BC2F0 /* Assets.xcassets */; };
+		1D4FF2AC1CD56310008BC2F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FF2AA1CD56310008BC2F0 /* LaunchScreen.storyboard */; };
+		1D4FF2B41CD5817D008BC2F0 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FF2B31CD5817D008BC2F0 /* TransactionsTableViewController.swift */; };
+		1D4FF2B61CD5869A008BC2F0 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FF2B51CD5869A008BC2F0 /* TransactionTableViewCell.swift */; };
+		1D89BDEA1CD6C0E100B1153E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89BDE91CD6C0E100B1153E /* Stack.swift */; };
+		1D89BDF11CD6C20000B1153E /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89BDEF1CD6C20000B1153E /* Transaction+CoreDataProperties.swift */; };
+		1D89BDF21CD6C20000B1153E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89BDF01CD6C20000B1153E /* Transaction.swift */; };
+		1D89BDF41CD6C31300B1153E /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89BDF31CD6C31300B1153E /* TransactionController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D4FF29B1CD56310008BC2F0 /* PocketMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D4FF29E1CD56310008BC2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D4FF2A31CD56310008BC2F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D4FF2A61CD56310008BC2F0 /* PocketMoney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketMoney.xcdatamodel; sourceTree = "<group>"; };
+		1D4FF2A81CD56310008BC2F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D4FF2AB1CD56310008BC2F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1D4FF2AD1CD56310008BC2F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D4FF2B31CD5817D008BC2F0 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
+		1D4FF2B51CD5869A008BC2F0 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		1D89BDE91CD6C0E100B1153E /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		1D89BDEF1CD6C20000B1153E /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D89BDF01CD6C20000B1153E /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1D89BDF31CD6C31300B1153E /* TransactionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D4FF2981CD56310008BC2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D4FF2921CD56310008BC2F0 = {
+			isa = PBXGroup;
+			children = (
+				1D4FF29D1CD56310008BC2F0 /* PocketMoney */,
+				1D4FF29C1CD56310008BC2F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D4FF29C1CD56310008BC2F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FF29B1CD56310008BC2F0 /* PocketMoney.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D4FF29D1CD56310008BC2F0 /* PocketMoney */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FF2A21CD56310008BC2F0 /* Main.storyboard */,
+				1D4FF2A81CD56310008BC2F0 /* Assets.xcassets */,
+				1D4FF2AA1CD56310008BC2F0 /* LaunchScreen.storyboard */,
+				1D4FF2AD1CD56310008BC2F0 /* Info.plist */,
+				1D4FF29E1CD56310008BC2F0 /* AppDelegate.swift */,
+				1D89BDE91CD6C0E100B1153E /* Stack.swift */,
+				1D89BDF31CD6C31300B1153E /* TransactionController.swift */,
+				1D89BDDA1CD6A79100B1153E /* ViewControllers */,
+				1D89BDDC1CD6A7E100B1153E /* Model */,
+			);
+			path = PocketMoney;
+			sourceTree = "<group>";
+		};
+		1D89BDDA1CD6A79100B1153E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FF2B31CD5817D008BC2F0 /* TransactionsTableViewController.swift */,
+				1D4FF2B51CD5869A008BC2F0 /* TransactionTableViewCell.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1D89BDDC1CD6A7E100B1153E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D89BDEF1CD6C20000B1153E /* Transaction+CoreDataProperties.swift */,
+				1D89BDF01CD6C20000B1153E /* Transaction.swift */,
+				1D4FF2A51CD56310008BC2F0 /* PocketMoney.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D4FF29A1CD56310008BC2F0 /* PocketMoney */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D4FF2B01CD56310008BC2F0 /* Build configuration list for PBXNativeTarget "PocketMoney" */;
+			buildPhases = (
+				1D4FF2971CD56310008BC2F0 /* Sources */,
+				1D4FF2981CD56310008BC2F0 /* Frameworks */,
+				1D4FF2991CD56310008BC2F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketMoney;
+			productName = PocketMoney;
+			productReference = 1D4FF29B1CD56310008BC2F0 /* PocketMoney.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D4FF2931CD56310008BC2F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Ben Emdon";
+				TargetAttributes = {
+					1D4FF29A1CD56310008BC2F0 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = E299TDEV8Z;
+					};
+				};
+			};
+			buildConfigurationList = 1D4FF2961CD56310008BC2F0 /* Build configuration list for PBXProject "PocketMoney" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D4FF2921CD56310008BC2F0;
+			productRefGroup = 1D4FF29C1CD56310008BC2F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D4FF29A1CD56310008BC2F0 /* PocketMoney */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D4FF2991CD56310008BC2F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D4FF2AC1CD56310008BC2F0 /* LaunchScreen.storyboard in Resources */,
+				1D4FF2A91CD56310008BC2F0 /* Assets.xcassets in Resources */,
+				1D4FF2A41CD56310008BC2F0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D4FF2971CD56310008BC2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D89BDF41CD6C31300B1153E /* TransactionController.swift in Sources */,
+				1D89BDF21CD6C20000B1153E /* Transaction.swift in Sources */,
+				1D4FF2A71CD56310008BC2F0 /* PocketMoney.xcdatamodeld in Sources */,
+				1D89BDEA1CD6C0E100B1153E /* Stack.swift in Sources */,
+				1D89BDF11CD6C20000B1153E /* Transaction+CoreDataProperties.swift in Sources */,
+				1D4FF29F1CD56310008BC2F0 /* AppDelegate.swift in Sources */,
+				1D4FF2B61CD5869A008BC2F0 /* TransactionTableViewCell.swift in Sources */,
+				1D4FF2B41CD5817D008BC2F0 /* TransactionsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1D4FF2A21CD56310008BC2F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D4FF2A31CD56310008BC2F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1D4FF2AA1CD56310008BC2F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D4FF2AB1CD56310008BC2F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D4FF2AE1CD56310008BC2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D4FF2AF1CD56310008BC2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D4FF2B11CD56310008BC2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketMoney/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.PocketMoney;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1D4FF2B21CD56310008BC2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketMoney/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.GitHub.BenEmdon.PocketMoney;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D4FF2961CD56310008BC2F0 /* Build configuration list for PBXProject "PocketMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D4FF2AE1CD56310008BC2F0 /* Debug */,
+				1D4FF2AF1CD56310008BC2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D4FF2B01CD56310008BC2F0 /* Build configuration list for PBXNativeTarget "PocketMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D4FF2B11CD56310008BC2F0 /* Debug */,
+				1D4FF2B21CD56310008BC2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D4FF2A51CD56310008BC2F0 /* PocketMoney.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D4FF2A61CD56310008BC2F0 /* PocketMoney.xcdatamodel */,
+			);
+			currentVersion = 1D4FF2A61CD56310008BC2F0 /* PocketMoney.xcdatamodel */;
+			path = PocketMoney.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1D4FF2931CD56310008BC2F0 /* Project object */;
+}
