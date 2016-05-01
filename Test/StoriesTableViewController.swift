@@ -13,7 +13,7 @@ var values = [NSManagedObject]()
 var indexSelected = 0
 
 
-class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate {
+class StoriesTableViewController: UITableViewController {
     
     // MARK: Class variables
     
@@ -49,7 +49,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         fetchData()
         
         // Listens for if tableview needs to reload
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableData:", name: "reload", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StoriesTableViewController.reloadTableData(_:)), name: "reload", object: nil)
         
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "StoryViewBackground.pdf"))
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -98,7 +98,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         }
         
         
-        cell.delegate = self
+        //cell.delegate = self
         return cell
     }
     
@@ -207,7 +207,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         return "$" + String(format: "%.2f", value)
     }
     
-    func timeAgoSinceDate(date:NSDate) -> String {
+    func timeAgoSinceDate(date: NSDate) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
         let earliest = now.earlierDate(date)
